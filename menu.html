@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Menu — My Tasty App</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="shadow-sm">
+    <div class="wrapper flex items-center justify-between py-4">
+      <a href="index.html" class="flex items-center gap-3">
+        <span class="brand-logo">🍕</span>
+        <strong class="brand-name">My Tasty App</strong>
+      </a>
+      <nav class="flex items-center gap-4">
+        <a href="menu.html" class="active">Menu</a>
+        <a href="index.html#deals">Deals</a>
+        <a href="about.html">About Us</a>
+        <a href="contacts.html">Contacts</a>
+        <a href="index.html#order" class="btn btn-primary">Order now</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="wrapper mt-6">
+      <h1 class="section-subtitle">Popular choices</h1>
+      <div class="grid grid-3 mt-4">
+        <article class="card flex flex-col gap-3">
+          <img src="https://images.unsplash.com/photo-1601924582971-b0c5be3b39d5?q=80&w=1200&auto=format&fit=crop" alt="Classic Margherita">
+          <h3>Classic Margherita</h3>
+          <p class="muted">Simple and solid: tomato, mozzarella, basil. No drama, just good.</p>
+          <div class="flex items-center justify-between mt-4">
+            <strong>2 400 ₸</strong>
+            <button class="btn btn-primary">Add</button>
+          </div>
+        </article>
+        <article class="card flex flex-col gap-3">
+          <img src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?q=80&w=1200&auto=format&fit=crop" alt="Pepperoni Feast">
+          <h3>Pepperoni Feast</h3>
+          <p class="muted">Lots of pepperoni, lots of cheese. Zero regrets.</p>
+          <div class="flex items-center justify-between mt-4">
+            <strong>2 900 ₸</strong>
+            <button class="btn btn-primary">Add</button>
+          </div>
+        </article>
+        <article class="card flex flex-col gap-3">
+          <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=1200&auto=format&fit=crop" alt="Veggie Garden">
+          <h3>Veggie Garden</h3>
+          <p class="muted">Crunchy veggies, fresh herbs, and a light vibe. Tastes clean.</p>
+          <div class="flex items-center justify-between mt-4">
+            <strong>2 600 ₸</strong>
+            <button class="btn btn-primary">Add</button>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="mt-6">
+    <div class="wrapper py-4">
+      <p class="muted">© 2025 My Tasty App · Built with love</p>
+    </div>
+  </footer>
+</body>
+</html>
+

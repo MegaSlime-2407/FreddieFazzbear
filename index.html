@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <header class="shadow-sm">
+        <div class="wrapper flex items-center justify-between py-4">
+            <a href="#" class="flex items-center gap-3">
+                <span class="brand-logo">🍕</span>
+                <strong class="brand-name">My Tasty App</strong>
+            </a>
+            <nav class="flex items-center gap-4">
+                <a href="menu.html">Menu</a>
+                <a href="#deals">Deals</a>
+                <a href="about.html">About Us</a>
+                <a href="contacts.html">Contacts</a>
+                <a href="#order" class="btn btn-primary">Order now</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero: короткий дружелюбный интро -->
+        <section class="wrapper grid grid-2 items-center gap-8 py-4 mt-6">
+            <div class="flex flex-col gap-4">
+                <h1>Hot, fast, and actually tasty</h1>
+                <p class="muted">Fresh food made now, not yesterday. Pick what you like, tweak it a little, and we’ll get it to you while it’s still hot.</p>
+                <div class="flex items-center gap-3 mt-4">
+                    <a href="menu.html" class="btn btn-primary">Browse menu</a>
+                    <a href="#deals" class="btn btn-outline">See deals</a>
+                </div>
+            </div>
+            <div>
+                <img class="hero-rounded" src="https://images.unsplash.com/photo-1548365328-9f547fb0953c?q=80&w=1200&auto=format&fit=crop" alt="Fresh hot pizza on a table">
+            </div>
+        </section>
+
+        <!-- Меню вынесено на отдельную страницу menu.html -->
+
+        <!-- Deals/CTA: keep it short and clear -->
+        <section id="deals" class="wrapper mt-6">
+            <div class="card flex items-center justify-between gap-4">
+                <div>
+                    <h3>Student special</h3>
+                    <p class="muted">Got a student ID? That’s 10% off. Easy.</p>
+                </div>
+                <a href="#order" class="btn btn-outline">Get discount</a>
+            </div>
+        </section>
+
+
+
+    </main>
+
+    <footer class="mt-6">
+        <div class="wrapper py-4">
+            <p class="muted">© 2025 My Tasty App · Built with love</p>
+        </div>
+    </footer>
+</body>
+</html>
