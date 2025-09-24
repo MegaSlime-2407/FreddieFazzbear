@@ -170,6 +170,9 @@ nav a.active { color: var(--color-primary); font-weight: 700; text-decoration: u
 
 /* Картинка героя с радиусом 50% (круглая/овальная) */
 .hero-rounded { border-radius: 50%; }
+.hero-product { border-radius: 60%; }
+.hero-promo { border-radius: 30%; }
+
 
 /* Таблица */
 table { width: 100%; border-collapse: collapse; }
