@@ -191,7 +191,7 @@ input:focus, select:focus, textarea:focus { outline: 2px solid rgba(255,105,0,0.
 img { border-radius: var(--radius-md); }
 
 .about-title {
-  font-size: 96px;
+  font-size: 80px;
   line-height: 0.95;
   font-weight: 800;
   margin: 0 0 18px 0;
@@ -211,7 +211,7 @@ img { border-radius: var(--radius-md); }
 }
 
 @media (max-width: 720px) {
-  .about-title { font-size: 48px; }
+  .about-title { font-size: 56px; }
   .section-subtitle { font-size: 28px; }
   .about-lead { font-size: 16px; }
 }
