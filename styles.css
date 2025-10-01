@@ -273,3 +273,72 @@ img {
       "footer";
   }
 }
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+}
+.gallery-item img {
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+.gallery-item figcaption {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: end;
+  padding: 12px;
+  background: linear-gradient(to top, rgba(0,0,0,0.55), rgba(0,0,0,0.0));
+  color: white;
+  font-weight: 600;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.gallery-item:hover figcaption {
+  opacity: 1;
+}
+@media (max-width: 900px) {
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .gallery-grid { grid-template-columns: 1fr; }
+}
+
+/* Контейнер галереи: равные колонки и одинаковые ряды */
+.gallery-grid.uniform {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+/* Карточка изображения */
+.gallery-grid.uniform .gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--border-radius);
+  background: #f6f6f6;
+}
+
+/* Картинка: одинаковая высота и обрезка по контейнеру */
+.gallery-grid.uniform .gallery-item img {
+  display: block;
+  width: 100%;
+  height: 220px;        /* единая высота для всех изображений */
+  object-fit: cover;    /* заполняет, обрезая края без искажения */
+  border-radius: inherit;
+}
+
+/* Адаптив */
+@media (max-width: 900px) {
+  .gallery-grid.uniform { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .gallery-grid.uniform { grid-template-columns: 1fr; }
+}
