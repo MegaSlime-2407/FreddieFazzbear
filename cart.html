@@ -20,31 +20,46 @@
         <a href="about.html">About Us</a>
         <a href="contacts.html">Contacts</a>
         <a href="cart.html" class="active">Cart</a>
-        <a href="checkout.html">Checkout</a>
         <a href="index.html#order" class="btn btn-primary">Order now</a>
       </nav>
     </div>
   </header>
 
-  <main>
-    <section class="wrapper mt-6">
-      <div class="card">
-        <h1 class="section-subtitle">Your Cart</h1>
-        <p class="about-lead">Here’s what you’ve picked so far:</p>
+  <main class="wrapper mt-6">
+    <h1 class="section-subtitle">Your Cart</h1>
+    <p class="muted mb-4">Here’s what you’ve picked so far:</p>
 
-        <div class="empty-cart text-center py-8">
-          <p class="muted"> Your cart is empty. Let’s add something tasty!</p>
-          <a href="menu.html" class="btn btn-primary mt-4">Browse Menu</a>
+    <div class="cart-grid">
+     
+      <div class="cart-item">
+        <img src="https://dostavka.happy.bg/remote/files/images/2577344/fit_640_400.jpg?rev=1742891459" 
+             alt="Double Cola combo" class="cart-thumb">
+
+        <div class="cart-details">
+          <h3 class="cart-title">Double Cola combo</h3>
+          <p class="muted small">
+            Pizza margherita + pizza capricciosa + 2 Coca Colas
+          </p>
+          <span class="cart-price">5 400 ₸</span>
+        </div>
+
+        <div class="cart-actions">
+          <button class="btn btn-danger">Remove</button>
         </div>
       </div>
-    </section>
+    </div>
+
+    
+    <div class="cart-summary mt-4">
+      <h2>Order Summary</h2>
+      <p><strong>Total:</strong> 5 400 ₸</p>
+      <a href="checkout.html" class="btn btn-primary">Proceed to Checkout</a>
+    </div>
   </main>
 
   <footer class="mt-6">
     <div class="wrapper py-4">
       <p class="muted">© 2025 My Tasty App · Built with love</p>
-      <p class="muted">meow pizza</p>
-      <p class="muted">Yerkanat Marat · Amangeldy Aldiyar · Kenzhebayev Madiyar · Oralov Alinur</p>
     </div>
   </footer>
 </body>
