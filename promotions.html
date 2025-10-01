@@ -13,10 +13,10 @@
         <span class="brand-logo">🍕</span>
         <strong class="brand-name">My Tasty App</strong>
       </a>
-      <nav class="flex items-center gap-4">
+      <nav class="flex items-center gap-4" role="navigation">
         <a href="menu.html">Menu</a>
-        <a href="promotions.html" class="active">Promotions</a>
-        <a href="product.html">Product</a>        
+        <a href="promotions.html" class="active" aria-current="page">Promotions</a>
+        <a href="product.html">Product</a>
         <a href="about.html">About Us</a>
         <a href="contacts.html">Contacts</a>
         <a href="cart.html">Cart</a>
@@ -25,46 +25,46 @@
     </div>
   </header>
 
-
-<main>
+  <main>
     <section class="wrapper mt-6">
       <h1 class="section-subtitle">Available deals:</h1>
       <div class="grid grid-3 mt-4">
         <article class="card flex flex-col gap-3">
-          <img class="hero-promo" src="https://dostavka.happy.bg/remote/files/images/2577344/fit_640_400.jpg?rev=1742891459" alt="Pizza promo 1">
+          <img class="hero-promo" src="https://dostavka.happy.bg/remote/files/images/2577344/fit_640_400.jpg?rev=1742891459" alt="Pizza promo 1" loading="lazy">
           <h3>Double Cola combo</h3>
           <p class="muted">Combo pizza margherita + pizza capricciosa + 2 Coca Colas.</p>
           <div class="flex items-center justify-between mt-4">
             <strong>5 400 ₸</strong>
-            <button class="btn btn-primary">Add</button>
+            <button class="btn btn-primary" type="button">Add</button>
           </div>
         </article>
         <article class="card flex flex-col gap-3">
-          <img class="hero-promo" src="https://dostavka.happy.bg/remote/files/images/2577512/fit_640_400.jpg?rev=1742892093" alt="Pizza Promo 2">
+          <img class="hero-promo" src="https://dostavka.happy.bg/remote/files/images/2577512/fit_640_400.jpg?rev=1742892093" alt="Pizza Promo 2" loading="lazy">
           <h3>Potato wedges combo</h3>
           <p class="muted">Combo pizza capricciosa + truffle potato wedges with parmesan + Coca Cola.</p>
           <div class="flex items-center justify-between mt-4">
             <strong>4 500 ₸</strong>
-            <button class="btn btn-primary">Add</button>
+            <button class="btn btn-primary" type="button">Add</button>
           </div>
         </article>
         <article class="card flex flex-col gap-3">
-                  <img class="hero-promo" src="https://dostavka.happy.bg/remote/files/images/2577116/fit_640_400.jpg?rev=1742891484" alt="Pizza promo 1">
+          <img class="hero-promo" src="https://dostavka.happy.bg/remote/files/images/2577116/fit_640_400.jpg?rev=1742891484" alt="Pizza promo 1" loading="lazy">
           <h3>Double Madri combo</h3>
           <p class="muted">Combo pepperoni pizza + capricciosa pizza + 2 bottles of madri lemonade.</p>
           <div class="flex items-center justify-between mt-4">
             <strong>6 000 ₸</strong>
-            <button class="btn btn-primary">Add</button>
+            <button class="btn btn-primary" type="button">Add</button>
           </div>
         </article>
       </div>
     </section>
   </main>
 
-    <footer class="mt-6">
-        <div class="wrapper py-4">
-            <p class="muted">© 2025 My Tasty App · Built with love</p>
-        </div>
-    </footer>
+  <footer class="mt-6">
+    <div class="wrapper py-4">
+      <p class="muted">© 2025 My Tasty App · Made with love</p>
+      <p class="muted">Yerkanat Marat · Amangeldi Aldiyar · Kenzhebayev Madiyar · Oralov Alinur</p>
+    </div>
+  </footer>
 </body>
 </html>

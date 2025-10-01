@@ -13,10 +13,10 @@
         <span class="brand-logo">🍕</span>
         <strong class="brand-name">My Tasty App</strong>
       </a>
-      <nav class="flex items-center gap-4">
-        <a href="menu.html" class="active">Menu</a>
+      <nav class="flex items-center gap-4" role="navigation">
+        <a href="menu.html" class="active" aria-current="page">Menu</a>
         <a href="promotions.html">Promotions</a>
-        <a href="product.html">Product</a>        
+        <a href="product.html">Product</a>
         <a href="about.html">About Us</a>
         <a href="contacts.html">Contacts</a>
         <a href="cart.html">Cart</a>
@@ -30,60 +30,56 @@
       <h1 class="section-subtitle">Popular choices</h1>
       <div class="grid grid-3 mt-4">
         <article class="card flex flex-col gap-3">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a3/Eq_it-na_pizza-margherita_sep2005_sml.jpg" alt="Classic Margherita">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a3/Eq_it-na_pizza-margherita_sep2005_sml.jpg" alt="Classic Margherita" loading="lazy">
           <h3>Classic Margherita</h3>
           <p class="muted">Simple and solid: tomato, mozzarella, basil. No drama, just good.</p>
           <div class="flex items-center justify-between mt-4">
             <strong>2 400 ₸</strong>
-            <button class="btn btn-primary">Add</button>
+            <button class="btn btn-primary" type="button">Add</button>
           </div>
         </article>
         <article class="card flex flex-col gap-3">
-          <img src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?q=80&w=1200&auto=format&fit=crop" alt="Pepperoni Feast">
+          <img src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?q=80&w=1200&auto=format&fit=crop" alt="Pepperoni Feast" loading="lazy">
           <h3>Pepperoni Feast</h3>
           <p class="muted">Lots of pepperoni, lots of cheese. Zero regrets.</p>
           <div class="flex items-center justify-between mt-4">
             <strong>2 900 ₸</strong>
-            <button class="btn btn-primary">Add</button>
+            <button class="btn btn-primary" type="button">Add</button>
           </div>
         </article>
         <article class="card flex flex-col gap-3">
-          <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=1200&auto=format&fit=crop" alt="Veggie Garden">
+          <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=1200&auto=format&fit=crop" alt="Veggie Garden" loading="lazy">
           <h3>Veggie Garden</h3>
           <p class="muted">Crunchy veggies, fresh herbs, and a light vibe. Tastes clean.</p>
           <div class="flex items-center justify-between mt-4">
             <strong>2 600 ₸</strong>
-            <button class="btn btn-primary">Add</button>
+            <button class="btn btn-primary" type="button">Add</button>
           </div>
         </article>
       </div>
     </section>
- 
 
-    <!-- Image Gallery: 9 images in a uniform grid with captions on hover -->
     <section class="wrapper mt-6">
       <h2 class="section-subtitle">Gallery</h2>
       <div class="gallery-grid uniform mt-4">
-        <figure class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/Supreme_pizza.jpg" alt="Supreme pizza"><figcaption>Supreme pizza</figcaption></figure>
-        <figure class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Pizza_with_mozzarella.jpg" alt="Mozzarella pizza"><figcaption>Mozzarella pizza</figcaption></figure>
-        <figure class="gallery-item"><img src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?q=80&w=1200&auto=format&fit=crop" alt="Pepperoni"><figcaption>Pepperoni</figcaption></figure>
-        <figure class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Pizza_Pepperoni.jpg" alt="Pepperoni pizza"><figcaption>Pepperoni pizza</figcaption></figure>
-        <figure class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Pizza_in_wood_fired_oven.jpg" alt="Wood-fired oven"><figcaption>Wood-fired oven</figcaption></figure>
-        <figure class="gallery-item"><img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=1200&auto=format&fit=crop" alt="Veggie mix"><figcaption>Veggie mix</figcaption></figure>
-        <figure class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Pepperoni_pizza.jpg" alt="Pepperoni pie"><figcaption>Pepperoni pie</figcaption></figure>
-        <figure class="gallery-item"><img src="https://images.unsplash.com/photo-1528137871618-79d2761e3fd5?q=80&w=1200&auto=format&fit=crop" alt="Ingredients"><figcaption>Ingredients</figcaption></figure>
-        <figure class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Neapolitan_pizza_margherita_STEGH_v1.jpg" alt="Neapolitan Margherita"><figcaption>Neapolitan Margherita</figcaption></figure>
+        <figure class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/Supreme_pizza.jpg" alt="Supreme pizza" loading="lazy"><figcaption>Supreme pizza</figcaption></figure>
+        <figure class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Pizza_with_mozzarella.jpg" alt="Mozzarella pizza" loading="lazy"><figcaption>Mozzarella pizza</figcaption></figure>
+        <figure class="gallery-item"><img src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?q=80&w=1200&auto=format&fit=crop" alt="Pepperoni" loading="lazy"><figcaption>Pepperoni</figcaption></figure>
+        <figure class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Pizza_Pepperoni.jpg" alt="Pepperoni pizza" loading="lazy"><figcaption>Pepperoni pizza</figcaption></figure>
+        <figure class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Pizza_in_wood_fired_oven.jpg" alt="Wood-fired oven" loading="lazy"><figcaption>Wood-fired oven</figcaption></figure>
+        <figure class="gallery-item"><img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=1200&auto=format&fit=crop" alt="Veggie mix" loading="lazy"><figcaption>Veggie mix</figcaption></figure>
+        <figure class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Pepperoni_pizza.jpg" alt="Pepperoni pie" loading="lazy"><figcaption>Pepperoni pie</figcaption></figure>
+        <figure class="gallery-item"><img src="https://images.unsplash.com/photo-1528137871618-79d2761e3fd5?q=80&w=1200&auto=format&fit=crop" alt="Ingredients" loading="lazy"><figcaption>Ingredients</figcaption></figure>
+        <figure class="gallery-item"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Neapolitan_pizza_margherita_STEGH_v1.jpg" alt="Neapolitan Margherita" loading="lazy"><figcaption>Neapolitan Margherita</figcaption></figure>
       </div>
     </section>
   </main>
 
   <footer class="mt-6">
     <div class="wrapper py-4">
-      <p class="muted">© 2025 My Tasty App · Built with love</p>
-      <p class="muted">meow pizza</p>
-      <p class="muted">Yerkanat Marat · Amangeldy Aldiyar · Kenzhebayev Madiyar · Oralov Alinur</p>
+      <p class="muted">© 2025 My Tasty App · Made with love</p>
+      <p class="muted">Yerkanat Marat · Amangeldi Aldiyar · Kenzhebayev Madiyar · Oralov Alinur</p>
     </div>
   </footer>
 </body>
 </html>
-
