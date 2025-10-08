@@ -4,52 +4,119 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Cart — My Tasty App</title>
+ 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css" />
 </head>
-<body>
-  <header class="shadow-sm">
-    <div class="wrapper flex items-center justify-between py-4">
-      <a href="index.html" class="flex items-center gap-3">
-        <span class="brand-logo">🍕</span>
-        <strong class="brand-name">My Tasty App</strong>
+
+<body class="cart-page">
+
+ 
+  <header class="cart-header shadow-sm">
+    <div class="container d-flex align-items-center justify-content-between py-2">
+     
+      <a href="index.html" class="flex items-center gap-3 ">
+        <span class="brand-logo-cart fs-3">🍕</span>
+        <strong class="brand-name-cart">My Tasty App</strong>
       </a>
-      <nav class="flex items-center gap-4" role="navigation">
-        <a href="menu.html">Menu</a>
-        <a href="promotions.html">Promotions</a>
-        <a href="product.html">Product</a>
-        <a href="about.html">About Us</a>
-        <a href="contacts.html">Contacts</a>
-        <a href="cart.html" class="active" aria-current="page">Cart</a>
-        <a href="index.html#order" class="btn btn-primary">Order now</a>
+
+      
+      <nav class="d-flex align-items-center gap-4" role="navigation">
+        <a href="menu.html" class="nav-link-cart">Menu</a>
+        <a href="promotions.html" class="nav-link-cart">Promotions</a>
+        <a href="product.html" class="nav-link-cart">Product</a>
+        <a href="about.html" class="nav-link-cart">About Us</a>
+        <a href="contacts.html" class="nav-link-cart">Contacts</a>
+        <a href="cart.html" class="nav-link-cart active-link-cart">Cart</a>
+        <a href="index.html#order" class="btn btn-cart">Order now</a>
       </nav>
     </div>
   </header>
 
-  <main class="wrapper mt-6">
-    <h1 class="section-subtitle">Your Cart</h1>
-    <p class="muted mb-4">Here’s what you’ve picked so far:</p>
+  
+  <main class="container my-5">
+    <h1 class="mb-3">Your Cart</h1>
+    <p class="text-muted mb-4">Here’s what you’ve picked so far:</p>
 
-    <div class="cart-grid">
-      <div class="cart-item">
-        <img src="https://dostavka.happy.bg/remote/files/images/2577344/fit_640_400.jpg?rev=1742891459" alt="Double Cola combo" class="cart-thumb" loading="lazy">
-        <div class="cart-details">
-          <h3 class="cart-title">Double Cola combo</h3>
-          <p class="muted small">Pizza margherita + pizza capricciosa + 2 Coca Colas</p>
-          <span class="cart-price">5 400 ₸</span>
+   
+    <div class="row gy-4">
+      <div class="col-lg-6">
+        <div class="d-flex align-items-center border rounded p-3 shadow-sm">
+          <img src="https://dostavka.happy.bg/remote/files/images/2577344/fit_640_400.jpg?rev=1742891459" 
+               alt="Double Cola combo" class="img-fluid rounded me-3" style="max-width: 150px;">
+          <div class="flex-grow-1">
+            <h3 class="h5 mb-1">Double Cola combo</h3>
+            <p class="text-muted small mb-2">Pizza margherita + pizza capricciosa + 2 Coca Colas</p>
+            <span class="fw-bold">5 400 ₸</span>
+          </div>
+          <div class="ms-3">
+            <button class="btn btn-danger btn-sm" type="button">Remove</button>
+          </div>
         </div>
-        <div class="cart-actions">
-          <button class="btn btn-danger" type="button">Remove</button>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="border rounded p-3 shadow-sm">
+          <h2 class="h5 mb-3">Order Summary</h2>
+          <p><strong>Total:</strong> 5 400 ₸</p>
+          <a href="checkout.html" class="btn btn-cart w-100">Proceed to Checkout</a>
         </div>
       </div>
     </div>
 
-    <div class="cart-summary mt-4">
-      <h2>Order Summary</h2>
-      <p><strong>Total:</strong> 5 400 ₸</p>
-      <a href="checkout.html" class="btn btn-primary">Proceed to Checkout</a>
-    </div>
+  
+    <section class="mt-5">
+      <h2 class="mb-4">Would you like to add something?</h2>
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <div class="card h-100 shadow-sm">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a3/Eq_it-na_pizza-margherita_sep2005_sml.jpg" 
+                 class="card-img-top" alt="Classic Margherita">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Classic Margherita</h5>
+              <p class="card-text text-muted">Tomato, mozzarella, basil — simple perfection.</p>
+              <div class="d-flex justify-content-between align-items-center mt-auto">
+                <strong>2 400 ₸</strong>
+                <button class="btn btn-outline-cart btn-sm" type="button">Add</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="card h-100 shadow-sm">
+            <img src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?q=80&w=1200&auto=format&fit=crop" 
+                 class="card-img-top" alt="Pepperoni Feast">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Pepperoni Feast</h5>
+              <p class="card-text text-muted">Extra pepperoni and cheese — zero regrets.</p>
+              <div class="d-flex justify-content-between align-items-center mt-auto">
+                <strong>2 900 ₸</strong>
+                <button class="btn btn-outline-cart btn-sm" type="button">Add</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <div class="card h-100 shadow-sm">
+            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=1200&auto=format&fit=crop" 
+                 class="card-img-top" alt="Veggie Garden">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Veggie Garden</h5>
+              <p class="card-text text-muted">Fresh herbs, crunchy veggies, light and tasty.</p>
+              <div class="d-flex justify-content-between align-items-center mt-auto">
+                <strong>2 600 ₸</strong>
+                <button class="btn btn-outline-cart btn-sm" type="button">Add</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
+  
   <footer class="mt-6">
     <div class="wrapper py-4">
       <p class="muted">© 2025 My Tasty App · Made with love</p>
