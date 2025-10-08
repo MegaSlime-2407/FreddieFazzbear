@@ -167,16 +167,18 @@
     font-size: 2rem;
     font-weight: 800;
   }
+/* Заголовки - базовые стили (размеры будут переопределены в адаптивных правилах) */
+h1 {
+  font-weight: 800;
+}
 
-  h2 {
-    font-size: 1.5rem;
-    font-weight: 700;
-  }
+h2 {
+  font-weight: 700;
+}
 
-  h3 {
-    font-size: 1.25rem;
-    font-weight: 700;
-  }
+h3 {
+  font-weight: 700;
+}
 
   /* Текст */
   .muted {
@@ -254,18 +256,72 @@
     max-width: 100%;
   }
 
-  /* Адаптивность */
-  @media (max-width: 900px) {
-    .grid-3 > * {
-      flex: 1 1 calc((100% - 16px) / 2);
-    }
+/* Адаптивная типографика */
+/* Desktop (по умолчанию) */
+h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+
+h2 {
+  font-size: 1.875rem;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+p {
+  font-size: 1rem;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  h3 {
+    font-size: 1.25rem;
+  }
+  
+  p {
+    font-size: 0.95rem;
+  }
+  
+  .grid-3 > * {
+    flex: 1 1 calc((100% - 16px) / 2);
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.75rem;
+  }
+  
+  h2 {
+    font-size: 1.375rem;
+  }
+  
+  h3 {
+    font-size: 1.125rem;
+  }
+  
+  p {
+    font-size: 0.9rem;
   }
 
-  @media (max-width: 600px) {
-    .grid-2,
-    .grid-3 {
-      grid-template-columns: 1fr;
-    }
+  .grid-2,
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
 
     .about-title {
       font-size: 56px;
