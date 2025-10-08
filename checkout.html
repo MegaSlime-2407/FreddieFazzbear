@@ -7,38 +7,33 @@
   <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
-  <div class="page-grid">
-    <header class="area-header shadow-sm">
-      <div class="wrapper flex items-center justify-between py-4">
-        <a href="index.html" class="flex items-center gap-3">
-          <span class="brand-logo">🍕</span>
-          <strong class="brand-name">My Tasty App</strong>
-        </a>
-        <nav class="flex items-center gap-4" role="navigation">
-          <a href="menu.html">Menu</a>
-          <a href="promotions.html">Promotions</a>
-          <a href="product.html">Product</a>
-          <a href="about.html">About Us</a>
-          <a href="contacts.html">Contacts</a>
-          <a href="cart.html">Cart</a>
-          <a href="index.html#order" class="btn btn-primary">Order now</a>
-        </nav>
-      </div>
-    </header>
+  <header class="area-header shadow-sm">
+    <div class="wrapper flex items-center justify-between py-4">
+      <a href="index.html" class="flex items-center gap-3">
+        <span class="brand-logo">🍕</span>
+        <strong class="brand-name">My Tasty App</strong>
+      </a>
+      <nav class="flex items-center gap-4" role="navigation">
+        <a href="menu.html">Menu</a>
+        <a href="promotions.html">Promotions</a>
+        <a href="product.html">Product</a>
+        <a href="about.html">About Us</a>
+        <a href="contacts.html">Contacts</a>
+        <a href="cart.html">Cart</a>
+        <a href="index.html#order" class="btn btn-primary">Order now</a>
+      </nav>
+    </div>
+  </header>
 
-    <aside class="area-sidebar card order-summary">
-      <h2 class="section-subtitle">Your Order</h2>
-      <ul>
-        <li>🍕 Double Cola combo — 5 400 ₸</li>
-      </ul>
-      <p><strong>Total: 5 400 ₸</strong></p>
-    </aside>
+  <main class="wrapper mt-6">
+    <h1 class="section-subtitle">Checkout</h1>
+    <p class="about-lead">Almost there! Just fill in your details and we’ll deliver your pizza hot & fresh.</p>
 
-    <main class="area-main card">
-      <h1 class="section-subtitle">Checkout</h1>
-      <p class="about-lead">Almost there! Just fill in your details and we’ll deliver your pizza hot & fresh.</p>
-
-      <form class="checkout-form mt-4">
+    
+    <div class="checkout-grid mt-4">
+      
+      
+      <form class="checkout-form card">
         <div>
           <label for="name"><strong>Full Name</strong></label>
           <input type="text" id="name" placeholder="Your name" required>
@@ -70,8 +65,17 @@
 
         <button type="submit" class="btn btn-primary mt-4">Place Order</button>
       </form>
-    </main>
-  </div>
+
+      
+      <aside class="order-summary card">
+        <h2 class="section-subtitle">Your Order</h2>
+        <ul>
+          <li>🍕 Double Cola combo — 5 400 ₸</li>
+        </ul>
+        <p><strong>Total: 5 400 ₸</strong></p>
+      </aside>
+    </div>
+  </main>
 
   <footer class="mt-6">
     <div class="wrapper py-4">
