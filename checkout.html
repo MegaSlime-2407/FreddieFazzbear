@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Checkout — My Tasty App</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="area-header shadow-sm">
+    <div class="wrapper flex items-center justify-between py-4">
+      <a href="index.html" class="flex items-center gap-3">
+        <span class="brand-logo">🍕</span>
+        <strong class="brand-name">My Tasty App</strong>
+      </a>
+      <nav class="flex items-center gap-4" role="navigation">
+        <a href="menu.html">Menu</a>
+        <a href="promotions.html">Promotions</a>
+        <a href="product.html">Product</a>
+        <a href="about.html">About Us</a>
+        <a href="contacts.html">Contacts</a>
+        <a href="cart.html">Cart</a>
+        <a href="index.html#order" class="btn btn-primary">Order now</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrapper mt-6">
+    <h1 class="section-subtitle">Checkout</h1>
+    <p class="about-lead">Almost there! Just fill in your details and we’ll deliver your pizza hot & fresh.</p>
+
+    
+    <div class="checkout-grid mt-4">
+      
+      
+      <form class="checkout-form card">
+        <div>
+          <label for="name"><strong>Full Name</strong></label>
+          <input type="text" id="name" placeholder="Your name" required>
+        </div>
+        <div>
+          <label for="email"><strong>Email</strong></label>
+          <input type="email" id="email" placeholder="you@example.com" required>
+        </div>
+        <div>
+          <label for="address"><strong>Address</strong></label>
+          <input type="text" id="address" placeholder="Street, City" required>
+        </div>
+        <div>
+          <label for="phone"><strong>Phone</strong></label>
+          <input type="tel" id="phone" placeholder="+7 (___) ___-__-__" required>
+        </div>
+
+        <h2 class="section-subtitle mt-4">Payment</h2>
+        <div class="flex items-center gap-4 text-sm">
+          <label class="muted" title="Card payments are temporarily unavailable">
+            <input type="radio" name="payment" value="card" disabled>
+            Card (temporarily unavailable)
+          </label>
+          <label>
+            <input type="radio" name="payment" value="cash" checked>
+            Cash on Delivery
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-4">Place Order</button>
+      </form>
+
+      
+      <aside class="order-summary card">
+        <h2 class="section-subtitle">Your Order</h2>
+        <ul>
+          <li>🍕 Double Cola combo — 5 400 ₸</li>
+        </ul>
+        <p><strong>Total: 5 400 ₸</strong></p>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="mt-6">
+    <div class="wrapper py-4">
+      <p class="muted">© 2025 My Tasty App · Made with love</p>
+      <p class="muted">Yerkanat Marat · Amangeldi Aldiyar · Kenzhebayev Madiyar · Oralov Alinur</p>
+    </div>
+  </footer>
+</body>
+</html>

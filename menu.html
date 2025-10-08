@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Menu — My Tasty App</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <header class="shadow-sm">
+    <div class="wrapper flex items-center justify-between py-4">
+      <a href="index.html" class="flex items-center gap-3">
+        <span class="brand-logo">🍕</span>
+        <strong class="brand-name">My Tasty App</strong>
+      </a>
+      <nav class="flex items-center gap-4" role="navigation">
+        <a href="menu.html" class="active" aria-current="page">Menu</a>
+        <a href="promotions.html">Promotions</a>
+        <a href="product.html">Product</a>
+        <a href="about.html">About Us</a>
+        <a href="contacts.html">Contacts</a>
+        <a href="cart.html">Cart</a>
+        <a href="index.html#order" class="btn btn-primary">Order now</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="wrapper mt-6">
+      <h1 class="section-subtitle">Popular choices</h1>
+      <div class="grid grid-3 mt-4">
+        <article class="card flex flex-col gap-3">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a3/Eq_it-na_pizza-margherita_sep2005_sml.jpg" alt="Classic Margherita" loading="lazy">
+          <h3>Classic Margherita</h3>
+          <p class="muted">Simple and solid: tomato, mozzarella, basil. No drama, just good.</p>
+          <div class="flex items-center justify-between mt-4">
+            <strong>2 400 ₸</strong>
+            <button class="btn btn-primary" type="button">Add</button>
+          </div>
+        </article>
+        <article class="card flex flex-col gap-3">
+          <img src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?q=80&w=1200&auto=format&fit=crop" alt="Pepperoni Feast" loading="lazy">
+          <h3>Pepperoni Feast</h3>
+          <p class="muted">Lots of pepperoni, lots of cheese. Zero regrets.</p>
+          <div class="flex items-center justify-between mt-4">
+            <strong>2 900 ₸</strong>
+            <button class="btn btn-primary" type="button">Add</button>
+          </div>
+        </article>
+        <article class="card flex flex-col gap-3">
+          <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=1200&auto=format&fit=crop" alt="Veggie Garden" loading="lazy">
+          <h3>Veggie Garden</h3>
+          <p class="muted">Crunchy veggies, fresh herbs, and a light vibe. Tastes clean.</p>
+          <div class="flex items-center justify-between mt-4">
+            <strong>2 600 ₸</strong>
+            <button class="btn btn-primary" type="button">Add</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrapper mt-6">
+      <h2 class="section-subtitle">Gallery</h2>
+      <div class="container-fluid mt-4">
+        <div id="pizzaCarousel" class="carousel slide" data-bs-ride="carousel">
+          <!-- Carousel Indicators -->
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#pizzaCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#pizzaCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#pizzaCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#pizzaCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+            <button type="button" data-bs-target="#pizzaCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+            <button type="button" data-bs-target="#pizzaCarousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
+            <button type="button" data-bs-target="#pizzaCarousel" data-bs-slide-to="6" aria-label="Slide 7"></button>
+            <button type="button" data-bs-target="#pizzaCarousel" data-bs-slide-to="7" aria-label="Slide 8"></button>
+            <button type="button" data-bs-target="#pizzaCarousel" data-bs-slide-to="8" aria-label="Slide 9"></button>
+          </div>
+
+          <!-- Carousel Inner -->
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/Supreme_pizza.jpg" class="d-block w-100" alt="Supreme pizza" style="height: 500px; object-fit: cover;">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Supreme Pizza</h5>
+                <p>Loaded with premium toppings and rich flavors</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="https://au.gozney.com/cdn/shop/files/Caprese_Pizza_Feng_Chen_leopardcrust_-_Large_f0796fcd-05f1-4c1e-9341-fb6012fe7907.png?v=1743106145&width=1500" class="d-block w-100" alt="Mozzarella pizza" style="height: 500px; object-fit: cover;">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Mozzarella Pizza</h5>
+                <p>Fresh mozzarella with authentic Italian taste</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?q=80&w=1200&auto=format&fit=crop" class="d-block w-100" alt="Pepperoni" style="height: 500px; object-fit: cover;">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Classic Pepperoni</h5>
+                <p>Traditional pepperoni with perfect crispiness</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="https://fantinomondello.ca/wp-content/uploads/2021/02/pepperoni_cheese_pizza-1.jpg" class="d-block w-100" alt="Pepperoni pizza" style="height: 500px; object-fit: cover;">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Pepperoni Feast</h5>
+                <p>Extra pepperoni and cheese for the ultimate experience</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="https://uk.ooni.com/cdn/shop/articles/20220211142645-margherita-9920_e41233d5-dcec-461c-b07e-03245f031dfe.jpg?v=1737105431" class="d-block w-100" alt="Mini Pizza" style="height: 500px; object-fit: cover;">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Mini Margherita</h5>
+                <p>Perfect bite-sized authentic Margherita</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=1200&auto=format&fit=crop" class="d-block w-100" alt="Veggie mix" style="height: 500px; object-fit: cover;">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Veggie Garden</h5>
+                <p>Fresh vegetables and herbs for a healthy choice</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="https://mastersofkitchen.com/wp-content/uploads/2025/05/Deep-Hamburger-Sausage-Pepperoni-Pie-Recipe.webp" class="d-block w-100" alt="Pepperoni pie" style="height: 500px; object-fit: cover;">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Deep Dish Pepperoni</h5>
+                <p>Chicago-style deep dish with rich flavors</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="https://images.unsplash.com/photo-1528137871618-79d2761e3fd5?q=80&w=1200&auto=format&fit=crop" class="d-block w-100" alt="Ingredients" style="height: 500px; object-fit: cover;">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Fresh Ingredients</h5>
+                <p>Only the finest ingredients make our pizzas special</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="https://thepizzaheaven.com/wp-content/uploads/2021/07/Pizza-Margherita-1.jpg" class="d-block w-100" alt="Neapolitan Margherita" style="height: 500px; object-fit: cover;">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Neapolitan Margherita</h5>
+                <p>Authentic Italian recipe with San Marzano tomatoes</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Carousel Controls -->
+          <button class="carousel-control-prev" type="button" data-bs-target="#pizzaCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#pizzaCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="mt-6">
+    <div class="wrapper py-4">
+      <p class="muted">© 2025 My Tasty App · Made with love</p>
+      <p class="muted">Yerkanat Marat · Amangeldi Aldiyar · Kenzhebayev Madiyar · Oralov Alinur</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
