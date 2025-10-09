@@ -1,166 +1,96 @@
+<!-- about.html -->
 <!doctype html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About us — My Tasty App</title>
-  <link rel="stylesheet" href="./styles.css" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-  <header class="shadow-sm">
-    <div class="wrapper flex items-center justify-between py-4">
-      <a href="index.html" class="flex items-center gap-3">
-        <span class="brand-logo">🍕</span>
-        <strong class="brand-name">My Tasty App</strong>
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <span class="fs-3">🍕</span>
+        <strong>My Tasty App</strong>
       </a>
-      <nav class="flex items-center gap-4" role="navigation">
-        <a href="menu.html">Menu</a>
-        <a href="promotions.html">Promotions</a>
-        <a href="product.html">Product</a>
-        <a href="about.html" class="active" aria-current="page">About Us</a>
-        <a href="contacts.html">Contacts</a>
-        <a href="cart.html">Cart</a>
-        <a href="index.html#order" class="btn btn-primary">Order now</a>
-      </nav>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+          <li class="nav-item"><a class="nav-link" href="promotions.html">Promotions</a></li>
+          <li class="nav-item"><a class="nav-link" href="product.html">Product</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacts.html">Contacts</a></li>
+          <li class="nav-item"><a class="nav-link" href="cart.html">Cart</a></li>
+        </ul>
+        <a class="btn btn-warning text-white ms-3" href="checkout.html" role="button">Order now</a>
+      </div>
     </div>
-  </header>
+  </nav>
 
   <main>
-    <section class="wrapper mt-6">
+    <section class="container mt-3 mt-lg-4 px-sm-2">
       <div class="row g-4">
-        <header class="col-12">
-          <div class="card">
-            <div class="card-body">
-              <h2 class="section-subtitle">Overview of our story and mission</h2>
-              <p class="muted small">Discover our values and vision</p>
-            </div>
+        <div class="col-12">
+          <div class="card p-3">
+            <h2 class="h3">Overview of our story and mission</h2>
+            <p class="text-muted">Discover our values and vision</p>
           </div>
-        </header>
+        </div>
 
-        <aside class="col-12 col-md-4 col-xl-3">
-          <div class="card h-100">
-            <div class="card-body">
-            <h3 class="small-title">Quick facts</h3>
-            <p class="muted small"><strong>Founded:</strong> 2017</p>
-            <p class="muted small"><strong>Locations:</strong> 12 stores around the city</p>
-            <p class="muted small"><strong>Mission:</strong> tasty food, happy people</p>
-            <div class="mt-3">
-              <a href="contacts.html" class="btn btn-outline-primary w-100">Contact us</a>
-            </div>
+        <aside class="col-12 col-md-4 col-lg-3">
+          <div class="card h-100 p-3">
+            <h3 class="h6">Quick facts</h3>
+            <p class="text-muted"><strong>Founded:</strong> 2017</p>
+            <p class="text-muted"><strong>Locations:</strong> 12 stores around the city</p>
+            <p class="text-muted"><strong>Mission:</strong> tasty food, happy people</p>
+            <a class="btn btn-outline-primary w-100 mt-3" href="contacts.html">Contact us</a>
           </div>
         </aside>
 
-        <section class="col-12 col-md-8 col-xl-9">
-          <div class="card h-100 about-card">
-            <div class="card-body">
-            <h1 class="about-title">Who we are</h1>
-            <p class="about-lead">Most people find us because they’re hungry (relatable)...</p>
-            <p class="about-lead">But My Tasty App isn’t only about pizza...</p>
-            <p class="about-lead">Here are the few simple ideas we try to stick to.</p>
+        <section class="col-12 col-md-8 col-lg-9">
+          <div class="card h-100 p-3">
+            <h1 class="display-6">Who we are</h1>
+            <p class="lead text-muted">Most people find us because they’re hungry (relatable)...</p>
+            <p>But My Tasty App isn’t only about pizza...</p>
 
-            <h2 class="section-subtitle mt-4">What matters to us</h2>
-            <div class="features-grid">
-              <div class="feature"><strong>Fresh stuff</strong><p class="muted small">Crisp veggies...</p></div>
-              <div class="feature"><strong>Dough that rests</strong><p class="muted small">Made daily...</p></div>
-              <div class="feature"><strong>Balanced recipes</strong><p class="muted small">We test and tweak...</p></div>
-              <div class="feature"><strong>Quick delivery</strong><p class="muted small">Because cold pizza...</p></div>
+            <h2 class="h4 mt-3">What matters to us</h2>
+            <div class="row g-3">
+              <div class="col-12 col-sm-6"><strong>Fresh stuff</strong><p class="text-muted small">Crisp veggies...</p></div>
+              <div class="col-12 col-sm-6"><strong>Dough that rests</strong><p class="text-muted small">Made daily...</p></div>
+              <div class="col-12 col-sm-6"><strong>Balanced recipes</strong><p class="text-muted small">We test and tweak...</p></div>
+              <div class="col-12 col-sm-6"><strong>Quick delivery</strong><p class="text-muted small">Because cold pizza...</p></div>
             </div>
 
-            <h3 class="section-subtitle mt-3">Our values</h3>
-            <ul class="value-list">
+            <h3 class="h5 mt-3">Our values</h3>
+            <ul class="ps-3">
               <li><strong>Quality</strong> — every ingredient matters.</li>
               <li><strong>Care</strong> — customers are neighbors first.</li>
               <li><strong>Speed</strong> — great food, no long wait.</li>
             </ul>
-            </div>
           </div>
         </section>
 
-        <footer class="col-12">
-          <div class="card">
-            <div class="card-body">
-              <p class="muted small">Footer area spans the bottom</p>
-            </div>
-          </div>
-        </footer>
-      </div>
-    </section>
-
-    <!-- Карточки для демонстрации адаптивности -->
-    <section class="mt-6"> 
-      <div class="wrapper"> 
-        <h2 class="section-subtitle">Our Services</h2>
-        <p class="muted small">What we offer to our customers</p>
-    
-        
-        <div class="card-group"> 
-          <div class="card">
-            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400&h=200&fit=crop" 
-                 class="card-img-top" alt="Fast Delivery" loading="lazy">
-            <div class="card-body">
-              <h3 class="card-title">Fast Delivery</h3>
-              <p class="card-text muted small">
-                Get your pizza delivered hot and fresh in under 30 minutes. Our delivery team ensures your order reaches you quickly and safely.
-              </p>
-              <a href="#" class="btn btn-outline mt-3">Learn More</a>
-            </div>
-          </div>
-    
-          <div class="card">
-            <img src="https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?w=400&h=200&fit=crop" 
-                 class="card-img-top" alt="Quality Ingredients" loading="lazy">
-            <div class="card-body">
-              <h3 class="card-title">Quality Ingredients</h3>
-              <p class="card-text muted small">
-                We use only the freshest ingredients sourced from local suppliers. Every pizza is made with premium quality cheese, vegetables, and meats.
-              </p>
-              <a href="#" class="btn btn-outline mt-3">Learn More</a>
-            </div>
-          </div>
-    
-          <div class="card">
-            <img src="https://images.unsplash.com/photo-1574126154517-d1e0d89ef734?w=400&h=200&fit=crop" 
-                 class="card-img-top" alt="24/7 Support" loading="lazy">
-            <div class="card-body">
-              <h3 class="card-title">24/7 Support</h3>
-              <p class="card-text muted small">
-                Our customer support team is available around the clock to help with your orders, questions, and any concerns you might have.
-              </p>
-              <a href="#" class="btn btn-outline mt-3">Learn More</a>
-            </div>
+        <div class="col-12">
+          <div class="card p-3">
+            <p class="text-muted mb-0">Footer area spans the bottom</p>
           </div>
         </div>
-      </div> 
-    </section>
-    
-
-    <section class="wrapper mt-6">
-      <h2 class="section-subtitle">Gallery</h2>
-      <p class="muted small">Partner Universities We Proudly Collaborate With</p>
-      <div class="gallery-grid uniform">
-        <figure class="gallery-item">
-          <img src="https://upload.wikimedia.org/wikipedia/en/a/ae/Al-Farabi_University_-_logo_-_01.jpg" alt="Al-Farabi Kazakh National University" loading="lazy">
-          <figcaption>Al-Farabi Kazakh National University</figcaption>
-        </figure>
-        <figure class="gallery-item">
-          <img src="https://yt3.googleusercontent.com/gMY3pb3f4P0FMkY9ACIFmUS73_zPQ30FCscoewt6Rvz0Gn_WPSUlsgiEwmD0NXGrEoZUrlENXdc=s900-c-k-c0x00ffffff-no-rj" alt="Astana IT University" loading="lazy">
-          <figcaption>Astana IT University</figcaption>
-        </figure>
-        <figure class="gallery-item">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRojSekaE8qvoaMYpqkRhWNZJhodtgcYRH5eg&s" alt="Kazakh-British Technical University" loading="lazy">
-          <figcaption>Kazakh-British Technical University</figcaption>
-        </figure>
       </div>
     </section>
   </main>
 
-  <footer class="mt-6">
-    <div class="wrapper py-4">
-      <p class="muted">© 2025 My Tasty App · Made with love</p>
-      <p class="muted">Yerkanat Marat · Amangeldi Aldiyar · Kenzhebayev Madiyar · Oralov Alinur</p>
+  <footer class="bg-white mt-4 mt-lg-5">
+    <div class="container py-3 px-sm-2">
+      <p class="text-muted mb-0">© 2025 My Tasty App · Made with love</p>
     </div>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

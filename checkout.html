@@ -4,76 +4,94 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Checkout — My Tasty App</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css" />
 </head>
-<body>
-  <header class="area-header shadow-sm">
-    <div class="wrapper flex items-center justify-between py-4">
-      <a href="index.html" class="flex items-center gap-3">
-        <span class="brand-logo">🍕</span>
-        <strong class="brand-name">My Tasty App</strong>
+
+<body class="cart-page">
+
+  <header class="cart-header shadow-sm">
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+        <span class="fs-3">🍕</span>
+        <strong>My Tasty App</strong>
       </a>
-      <nav class="flex items-center gap-4" role="navigation">
-        <a href="menu.html">Menu</a>
-        <a href="promotions.html">Promotions</a>
-        <a href="product.html">Product</a>
-        <a href="about.html">About Us</a>
-        <a href="contacts.html">Contacts</a>
-        <a href="cart.html">Cart</a>
-        <a href="index.html#order" class="btn btn-primary">Order now</a>
-      </nav>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="menu.html">Menu</a></li>
+          <li class="nav-item"><a class="nav-link" href="promotions.html">Promotions</a></li>
+          <li class="nav-item"><a class="nav-link" href="product.html">Product</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacts.html">Contacts</a></li>
+          <li class="nav-item"><a class="nav-link" href="cart.html">Cart</a></li>
+        </ul>
+        <a class="btn btn-warning text-white ms-3" href="checkout.html" role="button">Order now</a>
+      </div>
     </div>
+  </nav>
   </header>
 
-  <main class="wrapper mt-6">
-    <h1 class="section-subtitle">Checkout</h1>
-    <p class="about-lead">Almost there! Just fill in your details and we’ll deliver your pizza hot & fresh.</p>
+  <main class="container my-5">
+    <h1 class="mb-3">Checkout</h1>
+    <p class="text-muted mb-4">Almost there! Just fill in your details and we'll deliver your pizza hot & fresh.</p>
 
-    
-    <div class="checkout-grid mt-4">
-      
-      
-      <form class="checkout-form card">
-        <div>
-          <label for="name"><strong>Full Name</strong></label>
-          <input type="text" id="name" placeholder="Your name" required>
-        </div>
-        <div>
-          <label for="email"><strong>Email</strong></label>
-          <input type="email" id="email" placeholder="you@example.com" required>
-        </div>
-        <div>
-          <label for="address"><strong>Address</strong></label>
-          <input type="text" id="address" placeholder="Street, City" required>
-        </div>
-        <div>
-          <label for="phone"><strong>Phone</strong></label>
-          <input type="tel" id="phone" placeholder="+7 (___) ___-__-__" required>
-        </div>
+    <div class="row gy-4">
+      <div class="col-lg-8">
+        <form class="border rounded p-4 shadow-sm">
+          <div class="mb-3">
+            <label for="name" class="form-label"><strong>Full Name</strong></label>
+            <input type="text" class="form-control" id="name" placeholder="Your name" required>
+          </div>
+          
+          <div class="mb-3">
+            <label for="email" class="form-label"><strong>Email</strong></label>
+            <input type="email" class="form-control" id="email" placeholder="you@example.com" required>
+          </div>
+          
+          <div class="mb-3">
+            <label for="address" class="form-label"><strong>Address</strong></label>
+            <input type="text" class="form-control" id="address" placeholder="Street, City" required>
+          </div>
+          
+          <div class="mb-3">
+            <label for="phone" class="form-label"><strong>Phone</strong></label>
+            <input type="tel" class="form-control" id="phone" placeholder="+7 (___) ___-__-__" required>
+          </div>
 
-        <h2 class="section-subtitle mt-4">Payment</h2>
-        <div class="flex items-center gap-4 text-sm">
-          <label class="muted" title="Card payments are temporarily unavailable">
-            <input type="radio" name="payment" value="card" disabled>
-            Card (temporarily unavailable)
-          </label>
-          <label>
-            <input type="radio" name="payment" value="cash" checked>
-            Cash on Delivery
-          </label>
-        </div>
+          <h2 class="h5 mt-4 mb-3">Payment</h2>
+          <div class="mb-3">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="payment" id="card" disabled>
+              <label class="form-check-label text-muted" for="card" title="Card payments are temporarily unavailable">
+                Card (temporarily unavailable)
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="payment" id="cash" checked>
+              <label class="form-check-label" for="cash">
+                Cash on Delivery
+              </label>
+            </div>
+          </div>
 
-        <button type="submit" class="btn btn-primary mt-4">Place Order</button>
-      </form>
+          <button type="submit" class="btn btn-cart w-100 mt-4">Place Order</button>
+        </form>
+      </div>
 
-      
-      <aside class="order-summary card">
-        <h2 class="section-subtitle">Your Order</h2>
-        <ul>
-          <li>🍕 Double Cola combo — 5 400 ₸</li>
-        </ul>
-        <p><strong>Total: 5 400 ₸</strong></p>
-      </aside>
+      <div class="col-lg-4">
+        <aside class="border rounded p-4 shadow-sm">
+          <h2 class="h5 mb-3">Your Order</h2>
+          <ul class="list-unstyled">
+            <li class="mb-2">🍕 Double Cola combo — 5 400 ₸</li>
+          </ul>
+          <p class="h5 mt-3"><strong>Total: 5 400 ₸</strong></p>
+        </aside>
+      </div>
     </div>
   </main>
 
