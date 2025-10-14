@@ -75,6 +75,14 @@
         </footer>
       </div>
     </section>
+
+    <!-- Current date & time -->
+    <section class="wrapper mt-6">
+      <div class="card">
+        <h3>Current date & time</h3>
+        <p class="mt-3">Now: <strong id="current-datetime"></strong></p>
+      </div>
+    </section>
   </main>
 
   <footer class="mt-6">
@@ -83,5 +91,22 @@
       <p class="muted">Yerkanat Marat · Amangeldi Aldiyar · Kenzhebayev Madiyar · Oralov Alinur</p>
     </div>
   </footer>
+
+  <script>
+    (function() {
+      var el = document.getElementById('current-datetime');
+      if (!el) return;
+      function update() {
+        var now = new Date();
+        var formatted = now.toLocaleString(undefined, {
+          year: 'numeric', month: 'long', day: 'numeric',
+          hour: 'numeric', minute: '2-digit'
+        });
+        el.textContent = formatted;
+      }
+      update();
+      setInterval(update, 1000);
+    })();
+  </script>
 </body>
 </html>
