@@ -759,4 +759,14 @@ p {
 @media (max-width: 480px) {
   .modal { padding: 14px; border-radius: calc(var(--border-radius) - 2px); }
   .accordion-button { padding: 12px; font-size: 0.95rem; }
+
+.input-error {
+  border-color: #ff4d4d !important;
+  box-shadow: 0 0 0 2px rgba(255, 77, 77, 0.2);
+  }
+.error-message {
+  color: #ff4d4d;
+  font-size: 0.875rem;
+  margin-top: 4px;
+  display: block;
 }
