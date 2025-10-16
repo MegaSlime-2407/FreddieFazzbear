@@ -613,11 +613,6 @@ p {
     min-width: 100%;
   }
 }
-
-/* TASK 4 */
-/* BUTTON STYLES BY MADIYAR */
-
-
 #randomColorBtn, #cycleColorBtn {
   padding: 10px 15px;
   margin: 5px;
@@ -654,3 +649,16 @@ p {
   border-color: #2980b9;
   transform: translateY(-1px);
 }
+
+.input-error {
+  border-color: #ff4d4d !important;
+  box-shadow: 0 0 0 2px rgba(255, 77, 77, 0.2);
+}
+
+.error-message {
+  color: #ff4d4d;
+  font-size: 0.875rem;
+  margin-top: 4px;
+  display: block;
+}
+
