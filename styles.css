@@ -22,6 +22,8 @@ body {
   background: var(--white);
   color: var(--black);
   line-height: 1.5;
+  /* ⚡️ Добавляем плавный переход для фона страницы */
+  transition: background-color 0.5s ease;
 }
 
 /* Ссылки */
@@ -611,3 +613,52 @@ p {
     min-width: 100%;
   }
 }
+#randomColorBtn, #cycleColorBtn {
+  padding: 10px 15px;
+  margin: 5px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: all 0.2s; /* Общий переход для hover */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: 50px;
+  width: 200px;
+}
+
+#randomColorBtn {
+  background-color: #ff0000; 
+  color: white;
+  border-color: #ec1515;
+}
+
+#randomColorBtn:hover {
+  background-color: #b41919;
+  border-color: #d40c0c;
+  transform: translateY(-1px);
+}
+
+#cycleColorBtn {
+  background-color: #3498db; 
+  color: white;
+  border-color: #3498db;
+}
+
+#cycleColorBtn:hover {
+  background-color: #2980b9;
+  border-color: #2980b9;
+  transform: translateY(-1px);
+}
+
+.input-error {
+  border-color: #ff4d4d !important;
+  box-shadow: 0 0 0 2px rgba(255, 77, 77, 0.2);
+}
+
+.error-message {
+  color: #ff4d4d;
+  font-size: 0.875rem;
+  margin-top: 4px;
+  display: block;
+}
+
