@@ -38,22 +38,29 @@
       <h1 class="section-subtitle">Checkout</h1>
       <p class="about-lead">Almost there! Just fill in your details and we’ll deliver your pizza hot & fresh.</p>
 
-      <form class="checkout-form mt-4">
+      <form class="checkout-form mt-4" id="checkoutForm" novalidate>
         <div>
           <label for="name"><strong>Full Name</strong></label>
           <input type="text" id="name" placeholder="Your name" required>
+          <small class="error-message"></small>
         </div>
+
         <div>
           <label for="email"><strong>Email</strong></label>
           <input type="email" id="email" placeholder="you@example.com" required>
+          <small class="error-message"></small>
         </div>
+
         <div>
           <label for="address"><strong>Address</strong></label>
-          <input type="text" id="address" placeholder="Street, City" required>
+          <input type="text" id="address" placeholder="Street" required>
+          <small class="error-message"></small>
         </div>
+
         <div>
           <label for="phone"><strong>Phone</strong></label>
           <input type="tel" id="phone" placeholder="+7 (___) ___-__-__" required>
+          <small class="error-message"></small>
         </div>
 
         <h2 class="section-subtitle mt-4">Payment</h2>
@@ -79,5 +86,8 @@
       <p class="muted">Yerkanat Marat · Amangeldi Aldiyar · Kenzhebayev Madiyar · Oralov Alinur</p>
     </div>
   </footer>
+
+  
+  <script src="./checkout.js"></script>
 </body>
 </html>
