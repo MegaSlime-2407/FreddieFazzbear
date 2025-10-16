@@ -49,6 +49,11 @@
               <input type="email" placeholder="Email">
               <textarea rows="5" placeholder="Message"></textarea>
               <button type="submit" class="btn btn-primary">Submit</button>
+
+              <div class="mt-3">
+                <button id="open-contact-popup" class="btn btn-outline" data-modal="#contact-modal" type="button">Contact via popup</button>
+              </div>
+
             </form>
           </div>
         </section>
@@ -98,5 +103,24 @@
       <p class="muted">Yerkanat Marat · Amangeldi Aldiyar · Kenzhebayev Madiyar · Oralov Alinur</p>
     </div>
   </footer>
+
+  <div class="modal-overlay" id="contact-modal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
+      <button class="modal-close" aria-label="Close contact popup">&times;</button>
+      <h2 id="contact-modal-title">Contact us</h2>
+      <p class="muted small">Write a quick message and we'll get back to you.</p>
+      <form id="contact-modal-form" class="mt-3" novalidate>
+        <input id="m-name" name="name" type="text" placeholder="Your name" required>
+        <input id="m-email" name="email" type="email" placeholder="Email" required>
+        <textarea id="m-message" name="message" rows="4" placeholder="Message" required></textarea>
+        <div class="mt-3">
+          <button type="submit" class="btn btn-primary">Send message</button>
+        </div>
+        <div class="error-message" id="modal-error" aria-live="polite" style="display:none;"></div>
+      </form>
+    </div>
+  </div>
+  <script src="./scripts.js"></script>
+
 </body>
 </html>
