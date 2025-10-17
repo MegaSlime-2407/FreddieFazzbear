@@ -662,3 +662,146 @@ p {
   display: block;
 }
 
+/* -----------------------------
+   Accordion (FAQ) — minimal styles
+   Uses existing design tokens (no visual break)
+   ----------------------------- */
+   .accordion {
+    margin-top: 1rem;
+    display: grid;
+    gap: 8px;
+  }
+  
+  /* карточечный вид для пункта — согласован с .card */
+  .accordion-item {
+    border-radius: calc(var(--border-radius) - 2px);
+    overflow: hidden;
+    border: 1px solid var(--light-gray);
+    background: var(--white);
+  }
+  
+  /* кнопка вопроса */
+  .accordion-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 14px 16px;
+    font-weight: 700;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--black);
+    text-align: left;
+  }
+  
+  /* нежный hover-эффект в палитре проекта */
+  .accordion-button:hover {
+    background: rgba(255,105,0,0.03);
+  }
+  
+  /* иконка справа */
+  .accordion-icon {
+    font-size: 1.05rem;
+    transition: transform 0.18s ease;
+    color: var(--orange);
+  }
+  
+  /* панель ответа — скрыта по умолчанию, плавный переход */
+  .accordion-panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.32s ease, padding 0.22s ease;
+    padding: 0 16px; /* вертикальные паддинги добавляются при открытии классом .open */
+  }
+  
+  /* при открытом пункте добавляем внутренние отступы и разворачиваем иконку */
+  .accordion-item.open .accordion-panel {
+    padding: 12px 16px 18px 16px;
+  }
+  .accordion-item.open .accordion-icon {
+    transform: rotate(45deg);
+  }
+  
+  /* текст внутри панели */
+  .accordion-panel p {
+    margin: 0;
+    color: var(--gray);
+    font-size: 0.98rem;
+    line-height: 1.6;
+  }
+  
+  /* -----------------------------
+     Modal / Popup — minimal styles
+     Reuses vars and .card/input styles
+     ----------------------------- */
+  /* overlay: скрыт по умолчанию через [hidden]; .show делает его видимым */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    background: rgba(0,0,0,0.45);
+    z-index: 1200;
+    padding: 20px;
+  }
+  
+  /* по умолчанию скрываем через attribute hidden (JS использует hidden) */
+  .modal-overlay[hidden] { display: none; }
+  
+  /* контейнер модалки */
+  .modal {
+    width: 100%;
+    max-width: 520px;
+    background: var(--white);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    box-shadow: var(--shadow);
+    position: relative;
+    transform-origin: center;
+  }
+  
+  /* кнопка закрытия — аккуратно сверху справа */
+  .modal-close {
+    position: absolute;
+    right: 12px;
+    top: 10px;
+    background: transparent;
+    border: none;
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+    color: var(--gray);
+  }
+  
+  /* немного расстояния для полей внутри (общие правила input/textarea уже заданы) */
+  .modal input,
+  .modal textarea {
+    margin-top: 8px;
+    margin-bottom: 6px;
+  }
+  
+  /* класс .show можно использовать для включения анимации в JS */
+  .modal-overlay.show { animation: fadeIn 160ms ease; }
+  
+  /* небольшая анимация */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* сообщение об ошибке в модалке */
+  .modal .error-message {
+    display: block;
+    color: #ff4d4d;
+    font-size: 0.9rem;
+    margin-top: 6px;
+  }
+  
+  /* responsive tweaks */
+  @media (max-width: 480px) {
+    .modal { padding: 14px; border-radius: calc(var(--border-radius) - 2px); }
+    .accordion-button { padding: 12px; font-size: 0.95rem; }
+  }
+  
+
