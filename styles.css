@@ -539,13 +539,23 @@ p {
 }
 
 .btn-danger {
-  background: #dc3545;
+  background-color: #dc3545;
   color: white;
+  border: none;
+  margin: 15px;
+  padding: 6px 14px;     
+  border-radius: 14px;    
+  font-size: 0.9rem;      
+  width: 100px;            
+  display: inline-block;
+    
 }
 
 .btn-danger:hover {
-  background: #bb2d3b;
+  background-color: #bb2d3b;
+  
 }
+
 
 /* Итого */
 .cart-summary {
@@ -805,3 +815,79 @@ p {
   }
   
 
+/* === Cart Styles === */
+.cart-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  background: #fafafa;
+}
+
+.cart-thumb {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-right: 12px;
+}
+
+.cart-details {
+  flex-grow: 1;
+}
+
+.cart-actions {
+  text-align: right;
+}
+
+.btn-danger {
+  background: #dc3545;
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-danger:hover {
+  background: #bb2d3b;
+}
+
+/* === Feedback section === */
+.site-feedback {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.stars {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.star {
+  color: #ccc;
+  transition: color 0.3s ease;
+}
+
+.star:hover {
+  color: gold;
+}
+
+.cart-message {
+  text-align: center;
+  font-weight: 500;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+  margin-top: 10px;
+}
