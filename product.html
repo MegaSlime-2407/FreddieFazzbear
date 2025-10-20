@@ -13,7 +13,8 @@
         <span class="brand-logo">🍕</span>
         <strong class="brand-name">My Tasty App</strong>
       </a>
-      <nav class="flex items-center gap-4" role="navigation">
+      <!-- tabindex = focus from keyboard -->
+      <nav class="flex items-center gap-4" role="navigation" tabindex="0">
         <a href="menu.html">Menu</a>
         <a href="promotions.html">Promotions</a>
         <a href="product.html" class="active" aria-current="page">Product</a>
@@ -30,7 +31,7 @@
       <div class="flex flex-col gap-4">
         <h1>About our products...</h1>
         <h3>At My Tasty, we believe in the art of great pizza. We use only the finest, freshest ingredients and an authentic Italian technique to craft our dough. Hand-stretched and topped with rich mozzarella and premium ingredients, every pizza is a celebration of true Italian flavor, made with dedication just for you.</h3>
-
+        <!-- Task 2 part 1 -->
         <button id="btn-show-time" class="btn btn-primary">Show current time</button>
         <p id="time-output" class="muted"></p>
       </div>
