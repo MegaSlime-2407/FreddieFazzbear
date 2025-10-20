@@ -22,3 +22,32 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+//Task 2 Part 4 By Madiyar (Filter by price) implementation:
+
+const sortSelect = document.getElementById('price-sort');
+const grid = document.getElementById('promotions-grid');
+
+const original = Array.from(grid.children); // save original order for default (grid.children - dochernie elementi vnutri tega)
+
+sortSelect.addEventListener('change', function () {
+  var items = Array.from(grid.children);
+  var mode = this.value;
+
+  if (mode === 'asc') {
+    items.sort(function(a,b){
+      return Number(a.dataset.price) - Number(b.dataset.price);
+    });
+  } else if (mode === 'desc') {
+    items.sort(function(a,b){
+      return Number(b.dataset.price) - Number(a.dataset.price);
+    });
+  } else {
+    items = original.slice(); 
+  }
+
+  grid.innerHTML = '';
+  items.forEach(function(el){
+    grid.appendChild(el);
+  });
+});
