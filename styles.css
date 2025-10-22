@@ -892,6 +892,60 @@ p {
   margin-top: 10px;
 }
 
+/* Styles for Task 2 Part 3 By Madiyar */
+.carousel-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: stretch;
+}
+
+
+.carousel-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.carousel-image {
+  width: 600px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+
+.carousel-text {
+  width: 100%;
+  max-width: 720px;
+  padding: 0 8px;
+}
+
+
+/*  (Back / Next) */
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 6px;
+}
+
+/* see focus */
+#ingredients-carousel:focus {
+  outline: 3px solid rgba(255,105,0,0.15);
+  outline-offset: 4px;
+}
+
+/* mobile text */
+
+@media (max-width: 700px) {
+  .carousel-inner { gap: 8px; }
+  .carousel-image { height: 180px; max-width: 100%; }
+}
 /* demo block under Quick facts */
 .card.demo-mini { padding: 12px; }
 #animate-box {

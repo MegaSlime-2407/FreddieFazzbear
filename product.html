@@ -13,7 +13,8 @@
         <span class="brand-logo">🍕</span>
         <strong class="brand-name">My Tasty App</strong>
       </a>
-      <nav class="flex items-center gap-4" role="navigation">
+      <!-- Task 2 part 2 (tabindex = focus from keyboard) -->
+      <nav class="flex items-center gap-4" role="navigation" tabindex="0">
         <a href="menu.html">Menu</a>
         <a href="promotions.html">Promotions</a>
         <a href="product.html" class="active" aria-current="page">Product</a>
@@ -24,11 +25,15 @@
       </nav>
     </div>
   </header>
+
   <main>
     <section class="wrapper grid grid-2 items-center gap-8 py-4 mt-6">
       <div class="flex flex-col gap-4">
         <h1>About our products...</h1>
         <h3>At My Tasty, we believe in the art of great pizza. We use only the finest, freshest ingredients and an authentic Italian technique to craft our dough. Hand-stretched and topped with rich mozzarella and premium ingredients, every pizza is a celebration of true Italian flavor, made with dedication just for you.</h3>
+        <!-- Task 2 part 1 -->
+        <button id="btn-show-time" class="btn btn-primary">Show current time</button>
+        <p id="time-output" class="muted"></p>
       </div>
       <div>
         <img class="hero-product" src="https://media.istockphoto.com/id/1442417585/photo/person-getting-a-piece-of-cheesy-pepperoni-pizza.jpg?s=612x612&w=0&k=20&c=k60TjxKIOIxJpd4F4yLMVjsniB4W1BpEV4Mi_nb4uJU=" alt="Fresh hot pizza on a table" loading="lazy">
@@ -36,11 +41,36 @@
     </section>
   </main>
 
+<!-- Task 2 part 3  -->
+
+  <section id="ingredients-carousel-section" class="wrapper mt-6">
+    <div class="card carousel-card" id="ingredients-carousel" tabindex="0" aria-label="Products carousel">
+      <h2 class="section-subtitle">What we use:</h2>
+  
+      <div class="carousel-inner">
+        <img id="carousel-image" class="carousel-image" src="" alt="">
+        <div class="carousel-text">
+          <h3 id="carousel-title"></h3>
+          <p id="carousel-desc" class="muted"></p>
+        </div>
+      </div>
+  
+      <div class="carousel-controls">
+        <button id="carousel-back" class="btn">Back</button>
+        <span id="carousel-step" class="muted">1 / 4</span>
+        <button id="carousel-next" class="btn btn-primary">Next</button>
+      </div>
+    </div>
+  </section>
+
   <footer class="mt-6">
     <div class="wrapper py-4">
       <p class="muted">© 2025 My Tasty App · Made with love</p>
       <p class="muted">Yerkanat Marat · Amangeldi Aldiyar · Kenzhebayev Madiyar · Oralov Alinur</p>
     </div>
   </footer>
+
+
+  <script src="product.js"></script>
 </body>
 </html>
