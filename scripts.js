@@ -7,14 +7,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!btn || !panel) return;
 
     btn.setAttribute('aria-expanded', 'false');
-    panel.style.maxHeight = null;
+    panel.style.overflow = 'hidden';
+    panel.style.maxHeight = '0px';
 
     btn.addEventListener('click', () => {
       const expanded = btn.getAttribute('aria-expanded') === 'true';
       if (expanded) {
         item.classList.remove('open');
         btn.setAttribute('aria-expanded', 'false');
-        panel.style.maxHeight = null;
+        panel.style.maxHeight = '0px';
       } else {
         item.classList.add('open');
         btn.setAttribute('aria-expanded', 'true');

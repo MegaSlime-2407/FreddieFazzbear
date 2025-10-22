@@ -34,16 +34,20 @@ sortSelect.addEventListener('change', function () {
   var items = Array.from(grid.children);
   var mode = this.value;
 
-  if (mode === 'asc') {
-    items.sort(function(a,b){
-      return Number(a.dataset.price) - Number(b.dataset.price);
-    });
-  } else if (mode === 'desc') {
-    items.sort(function(a,b){
-      return Number(b.dataset.price) - Number(a.dataset.price);
-    });
-  } else {
-    items = original.slice(); 
+  switch (mode) {
+    case 'asc':
+      items.sort(function(a,b){
+        return Number(a.dataset.price) - Number(b.dataset.price);
+      });
+      break;
+    case 'desc':
+      items.sort(function(a,b){
+        return Number(b.dataset.price) - Number(a.dataset.price);
+      });
+      break;
+    default:
+      items = original.slice(); 
+      break;
   }
 
   grid.innerHTML = '';
