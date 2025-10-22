@@ -946,3 +946,178 @@ p {
   .carousel-inner { gap: 8px; }
   .carousel-image { height: 180px; max-width: 100%; }
 }
+/* demo block under Quick facts */
+.card.demo-mini { padding: 12px; }
+#animate-box {
+  background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+#animate-box:active { transform: scale(0.98); }
+#skills-list { margin: 6px 0 0 0; padding-left: 18px; }
+
+/* ---------------- Steam / Hot effect for food cards ---------------- */
+/* Используется псевдо-элементы ::before и ::after для двух "паровых" волн */
+.hot-card {
+  position: relative;
+  overflow: visible; /* чтобы пар выходил за пределы */
+}
+
+/* общие свойства для псевдо-элементов */
+.hot-card::before,
+.hot-card::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) translateY(0) scaleX(0.9);
+  bottom: 62%;
+  width: 44px;
+  height: 18px;
+  border-radius: 50%;
+  opacity: 0;
+  filter: blur(6px);
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(255,255,255,0.75), rgba(255,255,255,0));
+  transition: opacity 220ms ease, transform 800ms cubic-bezier(.2,.9,.3,1);
+}
+
+/* второй слой — чуть другой размер/позиция для глубины */
+.hot-card::after {
+  bottom: 68%;
+  width: 30px;
+  height: 14px;
+  transform-origin: center;
+  transition-duration: 900ms;
+  filter: blur(8px);
+  opacity: 0;
+}
+
+/* при ховере/фокусе запускаем анимацию (добавляем класс .hot-active для JS) */
+.hot-card.hot-active::before,
+.hot-card.hot-active::after {
+  opacity: 0.9;
+  animation: steam-rise 1100ms ease-out forwards;
+}
+
+/* легкое смещение второй волны */
+.hot-card.hot-active::after {
+  animation-delay: 180ms;
+  animation-duration: 1200ms;
+}
+
+/* keyframes: поднимается и исчезает */
+@keyframes steam-rise {
+  0% {
+    transform: translateX(-50%) translateY(0) scaleX(0.85);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.85;
+    transform: translateX(-50%) translateY(-6px) scaleX(1.0);
+  }
+  100% {
+    transform: translateX(-50%) translateY(-36px) scaleX(1.12);
+    opacity: 0;
+  }
+}
+
+/* аккуратный focus-visible support (клавиатурный фокус) */
+.hot-card:focus-within.hot-active {
+  outline: 2px solid rgba(255,105,0,0.12);
+  outline-offset: 6px;
+}
+
+/* Steam effect — улучшенный (paste в конец styles.css) */
+.pizza-emoji {
+  position: relative;
+  display: inline-block;
+  font-size: 64px;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+  z-index: 1;
+  overflow: visible; /* важно, чтобы пар был виден за пределами */
+}
+
+.pizza-emoji:hover { transform: scale(1.08); }
+
+/* псевдоэлементы для пара */
+/* Пар (анимация при наведении) */
+.hot-card::before,
+.hot-card::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 70%;
+  transform: translateX(-50%);
+  width: 35px;
+  height: 18px;
+  background: radial-gradient(circle, rgba(180,180,180,0.9) 0%, rgba(180,180,180,0) 70%);
+  opacity: 0;
+  border-radius: 50%;
+  filter: blur(4px);
+}
+
+.hot-card:hover::before {
+  animation: steamUp 1.2s ease-in-out infinite;
+  opacity: 1;
+}
+
+.hot-card:hover::after {
+  animation: steamUp 1.4s ease-in-out infinite;
+  opacity: 0.9;
+}
+
+@keyframes steamUp {
+  0% {
+    transform: translate(-50%, 0) translateY(0) scale(0.8);
+    opacity: 0;
+  }
+  40% {
+    transform: translate(-50%, 0) translateY(-10px) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, 0) translateY(-35px) scale(1.2);
+    opacity: 0;
+  }
+}
+
+
+/* второй слой — чуть выше и меньше */
+.pizza-emoji::after {
+  bottom: 74%;
+  width: 28px;
+  height: 12px;
+  filter: blur(8px);
+  opacity: 0;
+}
+
+/* При hover запускаем анимацию (две волны с разным таймингом) */
+.pizza-emoji:hover::before {
+  animation: steamRise1 1100ms cubic-bezier(.2,.9,.3,1) forwards;
+  opacity: 0.9;
+}
+.pizza-emoji:hover::after {
+  animation: steamRise2 1250ms cubic-bezier(.2,.9,.3,1) forwards;
+  opacity: 0.85;
+}
+
+/* keyframes */
+@keyframes steamRise1 {
+  0%   { transform: translateX(-50%) translateY(0) scaleX(0.85); opacity: 0; }
+  20%  { transform: translateX(-50%) translateY(-6px) scaleX(1); opacity: 0.8; }
+  100% { transform: translateX(-50%) translateY(-36px) scaleX(1.18); opacity: 0; }
+}
+@keyframes steamRise2 {
+  0%   { transform: translateX(-50%) translateY(0) scaleX(0.75); opacity: 0; }
+  25%  { transform: translateX(-50%) translateY(-8px) scaleX(0.95); opacity: 0.75; }
+  100% { transform: translateX(-50%) translateY(-44px) scaleX(1.25); opacity: 0; }
+}
+
+/* на мобильных (опционально) - уменьшить эффект */
+@media (max-width: 600px) {
+  .pizza-emoji { font-size: 48px; }
+  .pizza-emoji::before { width: 34px; height: 12px; bottom: 66%; }
+  .pizza-emoji::after  { width: 22px; height: 10px; bottom: 72%; }
+}
