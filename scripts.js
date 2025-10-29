@@ -426,6 +426,197 @@ setTimeout(populateDemoNow, 120);
   });
 })();
 
+  /* INSERT: Scroll progress logic — поместить в scripts.js (в самом конце) */
+(function () {
+  'use strict';
+
+  var progressEl = document.getElementById('scroll-progress');
+  if (!progressEl) return; // если элемент не найден — ничего не делаем
+
+  // Обновить прогресс и aria
+  function updateProgress() {
+    var doc = document.documentElement;
+    var body = document.body;
+    var scrollTop = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
+    var scrollHeight = Math.max(
+      body.scrollHeight, doc.scrollHeight,
+      body.offsetHeight, doc.offsetHeight,
+      body.clientHeight, doc.clientHeight
+    );
+    var clientHeight = doc.clientHeight || window.innerHeight;
+    var maxScroll = scrollHeight - clientHeight;
+    var pct = 0;
+
+    if (maxScroll > 0) {
+      pct = Math.min(100, Math.max(0, (scrollTop / maxScroll) * 100));
+    } else {
+      pct = 0;
+    }
+
+    progressEl.style.width = pct + '%';
+    progressEl.setAttribute('aria-valuenow', Math.round(pct));
+
+    // Показываем прогрессбар только если есть что скроллить
+    if (maxScroll > 0 && (scrollTop > 20 || pct > 0)) {
+      progressEl.classList.add('visible');
+      document.body.classList.add('has-top-progressbar'); // опционально добавить отступ сверху
+      progressEl.setAttribute('aria-hidden', 'false');
+    } else {
+      // когда документ короткий — скрываем
+      progressEl.classList.remove('visible');
+      document.body.classList.remove('has-top-progressbar');
+      progressEl.setAttribute('aria-hidden', 'true');
+    }
+  }
+
+  // Debounce — чтобы не обновлять слишком часто во время быстрого скролла
+  var rafPending = false;
+  function onScrollOrResize() {
+    if (rafPending) return;
+    rafPending = true;
+    window.requestAnimationFrame(function () {
+      updateProgress();
+      rafPending = false;
+    });
+  }
+
+  // Начальная установка и обработчики
+  window.addEventListener('scroll', onScrollOrResize, {passive: true});
+  window.addEventListener('resize', onScrollOrResize);
+  window.addEventListener('orientationchange', onScrollOrResize);
+
+  // Инициализация на загрузке
+  document.addEventListener('DOMContentLoaded', function () {
+    updateProgress();
+  });
+
+  // Если контент динамически добавляется (например lazy images),
+  // можно повторно вызвать updateProgress() после загрузки изображений:
+  window.addEventListener('load', function () {
+    // даём секунду чтобы подвисшие расчёты завершились
+    setTimeout(updateProgress, 120);
+  });
+
+})();
+/* END INSERT */
+/* INSERT: Animated counters — add to end of scripts.js */
+(function () {
+  'use strict';
+
+  var counters = Array.prototype.slice.call(document.querySelectorAll('.stat-number'));
+  if (!counters.length) return;
+
+  // форматирование числа с разделителем тысяч
+  function formatNumber(n) {
+    // Используем toLocaleString, fallback — простой форматер
+    if (typeof n.toLocaleString === 'function') {
+      return n.toLocaleString('en-US');
+    }
+    return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
+  // анимация: плавный подсчёт от 0 до target за duration ms
+  function animateCount(el, target, duration, suffix) {
+    var start = null;
+    var from = 0;
+    var diff = target - from;
+    var easeOutCubic = function (t) { return 1 - Math.pow(1 - t, 3); };
+
+    function step(timestamp) {
+      if (!start) start = timestamp;
+      var elapsed = timestamp - start;
+      var progress = Math.min(1, elapsed / duration);
+      var eased = easeOutCubic(progress);
+      var current = Math.floor(from + diff * eased);
+      el.textContent = formatNumber(current) + (suffix || '');
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      } else {
+        // гарантируем точное финальное значение
+        el.textContent = formatNumber(target) + (suffix || '');
+        // пометка, что анимация выполнена
+        el.dataset.animated = 'true';
+      }
+    }
+    window.requestAnimationFrame(step);
+  }
+
+  // IntersectionObserver для запуска при появлении в viewport (одноразово)
+  var observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.35 // запускаем, когда ~35% видимости
+  };
+
+  var obs = new IntersectionObserver(function (entries, observer) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      var el = entry.target;
+      if (el.dataset.animated === 'true') {
+        observer.unobserve(el);
+        return;
+      }
+      var target = parseInt(el.getAttribute('data-target') || '0', 10) || 0;
+      var suffix = el.getAttribute('data-suffix') || '';
+      // Длительность можно настраивать: чем больше число — тем длиннее анимация
+      var duration = Math.min(2000, 600 + Math.round(Math.log(Math.max(target,1)) * 500));
+      animateCount(el, target, duration, suffix);
+      observer.unobserve(el); // запускаем только один раз
+    });
+  }, observerOptions);
+
+  // Подключаем все элементы
+  counters.forEach(function (el) {
+    // начальное состояние — 0
+    el.textContent = '0';
+    obs.observe(el);
+  });
+
+})();
+
+/* INSERT: Submit button spinner logic */
+(function () {
+  'use strict';
+
+  const forms = document.querySelectorAll('form.js-with-spinner');
+  if (!forms.length) return;
+
+  function showMessage(targetId, text, isError) {
+    const el = document.getElementById(targetId);
+    if (!el) return;
+    el.textContent = text;
+    el.className = isError ? 'form-error' : 'form-success';
+    setTimeout(() => { el.textContent = ''; }, 4000);
+  }
+
+  forms.forEach(form => {
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const btn = form.querySelector('[data-spinner]');
+      if (!btn) return;
+
+      const original = btn.innerHTML;
+      btn.disabled = true;
+      btn.innerHTML = `<span class="spinner"></span> Please wait...`;
+
+      // Симуляция обработки формы
+      setTimeout(() => {
+        btn.disabled = false;
+        btn.innerHTML = original;
+        form.reset();
+
+        // Определяем, куда выводить сообщение
+        const msgId = form.id === 'contact-modal-form'
+          ? 'modalFormMessage'
+          : 'contactFormMessage';
+
+        showMessage(msgId, '✅ Message sent successfully!', false);
+      }, 1500);
+    });
+  });
+})();
+
+
 
 });
 

@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
+  <div id="scroll-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-hidden="true"></div>
   <header class="shadow-sm">
     <div class="wrapper flex items-center justify-between py-4">
       <a href="index.html" class="flex items-center gap-3">
@@ -193,6 +194,28 @@
       </div>
     </section>
   </main>
+
+  <!-- INSERT: Stats / Animated counters — вставить прямо перед <footer class="mt-6"> -->
+<section class="wrapper mt-6 stats-section" aria-label="Company statistics">
+  <div class="card" style="display:flex; align-items:center; justify-content:space-between; gap:18px; flex-wrap:wrap;">
+    <div class="stat-item" style="flex:1 1 180px; text-align:center; padding:16px;">
+      <div class="stat-number" data-target="10000" data-suffix="+" aria-hidden="false">0</div>
+      <div class="muted small">Pizzas served</div>
+    </div>
+
+    <div class="stat-item" style="flex:1 1 180px; text-align:center; padding:16px;">
+      <div class="stat-number" data-target="12" data-suffix="" aria-hidden="false">0</div>
+      <div class="muted small">Locations</div>
+    </div>
+
+    <div class="stat-item" style="flex:1 1 180px; text-align:center; padding:16px;">
+      <div class="stat-number" data-target="5000" data-suffix="+" aria-hidden="false">0</div>
+      <div class="muted small">Happy customers</div>
+    </div>
+  </div>
+</section>
+<!-- END INSERT -->
+
 
   <footer class="mt-6">
     <div class="wrapper py-4">

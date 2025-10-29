@@ -1121,3 +1121,92 @@ p {
   .pizza-emoji::before { width: 34px; height: 12px; bottom: 66%; }
   .pizza-emoji::after  { width: 22px; height: 10px; bottom: 72%; }
 }
+
+/* =========================
+   Scroll Progress Bar styles
+   ========================= */
+
+/* Прогрессбар — тонкая полоска вверху */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 6px;                    /* толщина — согласована с дизайном */
+  width: 0%;
+  z-index: 1300;                  /* чуть выше модалей/оверлеев */
+  background: linear-gradient(90deg, var(--orange) 0%, var(--orange-dark) 100%);
+  box-shadow: 0 4px 12px rgba(37,117,252,0.08); /* нежная тень, согласована с --shadow */
+  transition: width 120ms linear, opacity 260ms ease;
+  opacity: 0;
+  pointer-events: none;
+  border-bottom-right-radius: calc(var(--border-radius) / 2);
+  border-bottom-left-radius: calc(var(--border-radius) / 2);
+}
+
+/* Видимая версия (делает плавное появление) */
+#scroll-progress.visible {
+  opacity: 1;
+}
+
+/* Если хочешь оставить небольшой отступ под фиксированным header, 
+   можно включать этот класс на body через JS (опционально) */
+body.has-top-progressbar {
+  padding-top: 6px;
+}
+
+/* Адаптив: чуть тоньше на мобильных */
+@media (max-width: 600px) {
+  #scroll-progress { height: 4px; }
+  body.has-top-progressbar { padding-top: 4px; }
+}
+
+/* INSERT: Styles for Animated Number Counters (add to end of styles.css) */
+.stats-section .stat-item {
+  min-width: 160px;
+  flex-basis: 0;
+}
+
+.stats-section .stat-number {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--orange);
+  line-height: 1;
+  margin-bottom: 6px;
+  letter-spacing: -0.02em;
+}
+
+/* чуть меньший размер на мобильных */
+@media (max-width: 600px) {
+  .stats-section .stat-number { font-size: 1.6rem; }
+  .stats-section .card { padding: 12px; }
+}
+
+/* INSERT: spinner styles for submit button */
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-top-color: #fff;
+  border-radius: 50%;
+  display: inline-block;
+  vertical-align: middle;
+  animation: spin 0.6s linear infinite;
+  margin-right: 8px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Success / Error messages */
+.form-success {
+  color: #2ecc71;
+  font-weight: 500;
+  margin-top: 6px;
+}
+
+.form-error {
+  color: #e74c3c;
+  font-weight: 500;
+  margin-top: 6px;
+}
