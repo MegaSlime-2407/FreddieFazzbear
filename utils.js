@@ -49,3 +49,28 @@ function addToCart(buttonElement, toastTime = 2500) {
       }, 1500);
     });
   }
+
+  function lazyLoad() {
+    $('.lazy').each(function () {
+      const img = $(this);
+  
+      if (img.attr('src') === img.data('src')) return;
+  
+      const imgTop = img.offset().top;
+      const scrollBottom = $(window).scrollTop() + $(window).height();
+  
+      if (scrollBottom > imgTop - 300) {
+        const realSrc = img.data('src');
+  
+        const tempImg = new Image();
+        tempImg.src = realSrc;
+  
+        tempImg.onload = function () {
+          setTimeout(() => {
+            img.attr('src', realSrc);
+            img.addClass('loaded'); 
+          }, 1000); 
+        };
+      }
+    });
+  }
