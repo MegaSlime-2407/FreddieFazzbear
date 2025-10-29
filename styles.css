@@ -1212,7 +1212,7 @@ body.has-top-progressbar {
 }
 
 
-/* Jquerry Task 3 By Madiyar */
+/* Jquerry Task 3.1 By Madiyar */
 .toast {
   position: fixed;
   bottom: 25px;
@@ -1224,4 +1224,30 @@ body.has-top-progressbar {
   display: none;
   z-index: 9999;
   font-weight: bold;
+}
+/* Jquerry Task 3.2 By Madiyar */
+.copy-btn {
+  font-size: 18px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  position: relative;
+  opacity: 0.7;
+  transition: opacity .2s;
+}
+
+.copy-btn:hover { opacity: 1; }
+
+#global-tooltip {
+  position: absolute;
+  background: #000;
+  color: #fff;
+  font-size: 13px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease;
+  z-index: 9999;
 }
