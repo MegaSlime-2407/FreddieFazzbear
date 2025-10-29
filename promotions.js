@@ -1,3 +1,13 @@
+//Jquerry Task 3 by Madiyar
+function showToast(msg, time = 2500) {
+  const $t = $('.toast');
+  $t.text(msg).fadeIn(200);
+
+  setTimeout(() => {
+    $t.fadeOut(200);
+  }, time);
+}
+
 // promotions.js — Add from Promotions to Cart
 document.addEventListener('DOMContentLoaded', () => {
   const promoButtons = document.querySelectorAll('.grid-3 article button');
@@ -15,10 +25,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
       button.textContent = 'Added';
       button.classList.add('btn-success');
+      showToast(`${title} added to cart!`); //Jquerry task3
       setTimeout(() => {
         button.textContent = 'Add';
         button.classList.remove('btn-success');
-      }, 1000);
+      }, 2500);
     });
   });
 });

@@ -1210,3 +1210,18 @@ body.has-top-progressbar {
   font-weight: 500;
   margin-top: 6px;
 }
+
+
+/* Jquerry Task 3 By Madiyar */
+.toast {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: #028f34;
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 6px;
+  display: none;
+  z-index: 9999;
+  font-weight: bold;
+}
