@@ -31,7 +31,10 @@
       <div class="grid grid-3 mt-4">
         <article class="card flex flex-col gap-3">
           <img src="https://upload.wikimedia.org/wikipedia/commons/a/a3/Eq_it-na_pizza-margherita_sep2005_sml.jpg" alt="Classic Margherita" loading="lazy">
-          <h3>Classic Margherita</h3>
+          <div class="flex items-center justify-between">
+            <h3>Classic Margherita</h3>
+            <button class="copy-btn" type="button" title="Copy name">📋</button>
+          </div>
           <p class="muted">Simple and solid: tomato, mozzarella, basil. No drama, just good.</p>
           <div class="flex items-center justify-between mt-4">
             <strong>2 400 ₸</strong>
@@ -40,16 +43,23 @@
         </article>
         <article class="card flex flex-col gap-3">
           <img src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?q=80&w=1200&auto=format&fit=crop" alt="Pepperoni Feast" loading="lazy">
-          <h3>Pepperoni Feast</h3>
+          <div class="flex items-center justify-between">
+            <h3>Pepperoni Feast</h3>
+            <button class="copy-btn" type="button" title="Copy name">📋</button>
+          </div>
           <p class="muted">Lots of pepperoni, lots of cheese. Zero regrets.</p>
           <div class="flex items-center justify-between mt-4">
             <strong>2 900 ₸</strong>
             <button class="btn btn-primary" type="button">Add</button>
           </div>
         </article>
+
         <article class="card flex flex-col gap-3">
           <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=1200&auto=format&fit=crop" alt="Veggie Garden" loading="lazy">
-          <h3>Veggie Garden</h3>
+          <div class="flex items-center justify-between">
+            <h3>Veggie Garden</h3>
+            <button class="copy-btn" type="button" title="Copy name">📋</button>
+          </div>
           <p class="muted">Crunchy veggies, fresh herbs, and a light vibe. Tastes clean.</p>
           <div class="flex items-center justify-between mt-4">
             <strong>2 600 ₸</strong>
@@ -74,13 +84,17 @@
       </div>
     </section>
   </main>
-
+  <div class="toast"></div>
+  <div id="global-tooltip"></div>
   <footer class="mt-6">
     <div class="wrapper py-4">
       <p class="muted">© 2025 My Tasty App · Made with love</p>
       <p class="muted">Yerkanat Marat · Amangeldi Aldiyar · Kenzhebayev Madiyar · Oralov Alinur</p>
     </div>
   </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="./utils.js"></script>
+  <script src="./promotions.js"></script>
   <script src="./menu.js"></script>
 </body>
 </html>

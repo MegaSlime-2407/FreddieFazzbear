@@ -44,10 +44,16 @@
         </select>
       </div>
     
+
+      <!-- test -->
       <div id="promotions-grid" class="grid grid-3 mt-4">
+
         <article class="card flex flex-col gap-3" data-price="5400">
           <img class="hero-promo" src="https://dostavka.happy.bg/remote/files/images/2577344/fit_640_400.jpg?rev=1742891459" alt="Pizza promo 1" loading="lazy">
-          <h3>Double Cola combo</h3>
+          <div class="flex items-center justify-between">
+            <h3>Double Cola combo</h3>
+            <button class="copy-btn" type="button" title="Copy name">📋</button>
+          </div>
           <p class="muted">Combo pizza margherita + pizza capricciosa + 2 Coca Colas.</p>
           <div class="flex items-center justify-between mt-4">
             <strong>5 400 ₸</strong>
@@ -57,7 +63,10 @@
     
         <article class="card flex flex-col gap-3" data-price="4500">
           <img class="hero-promo" src="https://dostavka.happy.bg/remote/files/images/2577512/fit_640_400.jpg?rev=1742892093" alt="Pizza Promo 2" loading="lazy">
-          <h3>Potato wedges combo</h3>
+          <div class="flex items-center justify-between">
+            <h3>Potato wedges combo</h3>
+            <button class="copy-btn" type="button" title="Copy name">📋</button>
+          </div>
           <p class="muted">Combo pizza capricciosa + truffle potato wedges with parmesan + Coca Cola.</p>
           <div class="flex items-center justify-between mt-4">
             <strong>4 500 ₸</strong>
@@ -67,7 +76,10 @@
     
         <article class="card flex flex-col gap-3" data-price="6000">
           <img class="hero-promo" src="https://dostavka.happy.bg/remote/files/images/2577116/fit_640_400.jpg?rev=1742891484" alt="Pizza promo 3" loading="lazy">
-          <h3>Double Madri combo</h3>
+          <div class="flex items-center justify-between">
+            <h3>Double Madri combo</h3>
+            <button class="copy-btn" type="button" title="Copy name">📋</button>
+          </div>
           <p class="muted">Combo pepperoni pizza + capricciosa pizza + 2 bottles of madri lemonade.</p>
           <div class="flex items-center justify-between mt-4">
             <strong>6 000 ₸</strong>
@@ -77,16 +89,17 @@
       </div>
     </section>
   </main>
-
+  <div class="toast"></div>
+  <div id="global-tooltip"></div>
   <footer class="mt-6">
     <div class="wrapper py-4">
       <p class="muted">© 2025 My Tasty App · Made with love</p>
       <p class="muted">Yerkanat Marat · Amangeldi Aldiyar · Kenzhebayev Madiyar · Oralov Alinur</p>
     </div>
   </footer>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="./utils.js"></script>
   <script src="color.js"></script>
   <script src="./promotions.js"></script>
-
 </body>
 </html>
