@@ -26,9 +26,15 @@
   </header>
 
   <main>
-    <section class="wrapper mt-6">
+    <section class="wrapper mt-6" style="position: relative;">
       <h1 class="section-subtitle">Popular choices</h1>
-      <div class="grid grid-3 mt-4">
+      
+      <div class="search-container mt-4" style="max-width: 500px; margin-bottom: 24px;">
+        <input type="text" id="search-bar" class="search-input" placeholder="Search products..." autocomplete="off">
+        <div id="autocomplete" class="autocomplete-dropdown"></div>
+      </div>
+      
+      <div class="grid grid-3 mt-2" id="products-grid">
         <article class="card flex flex-col gap-3">
           <img src="https://upload.wikimedia.org/wikipedia/commons/a/a3/Eq_it-na_pizza-margherita_sep2005_sml.jpg" alt="Classic Margherita" loading="lazy">
           <div class="flex items-center justify-between">
