@@ -1,3 +1,6 @@
+$(window).on('scroll', lazyLoad);
+$(document).ready(lazyLoad);
+
 $(document).on('click', '.copy-btn', function () {
   copyName(this);
 });

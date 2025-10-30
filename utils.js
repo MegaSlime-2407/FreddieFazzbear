@@ -62,14 +62,20 @@ function addToCart(buttonElement, toastTime = 2500) {
       if (scrollBottom > imgTop - 300) {
         const realSrc = img.data('src');
   
+        if (!realSrc) return;
+  
         const tempImg = new Image();
         tempImg.src = realSrc;
   
         tempImg.onload = function () {
-          setTimeout(() => {
+          setTimeout(function() {
             img.attr('src', realSrc);
-            img.addClass('loaded'); 
-          }, 1000); 
+            img.addClass('loaded');
+          }, 2000);
+        };
+        
+        tempImg.onerror = function() {
+          img.removeClass('lazy');
         };
       }
     });
