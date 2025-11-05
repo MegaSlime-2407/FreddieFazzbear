@@ -1,23 +1,3 @@
-//Jquerry Task 3.1 by Madiyar
-function showToast(msg, time = 2500) {
-  const $t = $('.toast');
-  $t.text(msg).fadeIn(200);
-
-  setTimeout(() => {
-    $t.fadeOut(200);
-  }, time);
-}
-
-//Jquerry Task 3.2 by Madiyar
-
-
-
-$(document).on('click', '.copy-btn', function () {
-  copyName(this);
-});
-
-
-
 // promotions.js — Add from Promotions to Cart
 $(document).on('click', '.grid-3 article .btn-primary', function () {
   addToCart(this, 2500);

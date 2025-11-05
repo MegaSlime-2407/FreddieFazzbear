@@ -1,5 +1,15 @@
 //new class for utilities by Madiyar 
 //impl Jquerry 3 task
+
+function showToast(msg, time = 2500) {
+  const $t = $('.toast');
+  $t.text(msg).fadeIn(200);
+
+  setTimeout(() => {
+    $t.fadeOut(200);
+  }, time);
+}
+
 function addToCart(buttonElement, toastTime = 2500) {
     const card = buttonElement.closest('article');
     const title = card.querySelector('h3').textContent.trim();
