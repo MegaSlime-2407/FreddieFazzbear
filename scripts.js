@@ -609,7 +609,7 @@ setTimeout(populateDemoNow, 120);
         const msgId = form.id === 'contact-modal-form'
           ? 'modalFormMessage'
           : 'contactFormMessage';
-
+        
         showMessage(msgId, '✅ Message sent successfully!', false);
       }, 1500);
     });
