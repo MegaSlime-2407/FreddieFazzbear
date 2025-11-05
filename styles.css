@@ -1411,3 +1411,79 @@ html.dark-theme .btn-danger {
 html.dark-theme .btn-danger:hover {
     background-color: #b91c1c;
 }
+
+/* Responsive Navigation */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--white);
+}
+
+header nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+nav a {
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
+}
+
+nav a:hover {
+  background-color: var(--light-gray);
+  text-decoration: none;
+}
+
+nav a.active {
+  background-color: var(--orange);
+  color: var(--white);
+  font-weight: 600;
+}
+
+nav a.active:hover {
+  background-color: var(--orange-dark);
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  header .wrapper {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  
+  nav {
+    width: 100%;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  nav a {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+  
+  .grid-3 > * {
+    flex: 1 1 100%;
+    min-width: 100%;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
