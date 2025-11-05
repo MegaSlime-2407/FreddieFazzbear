@@ -1323,3 +1323,91 @@ mark.highlight {
   padding: 4px;
   border-radius: 4px;
 }
+html.dark-theme {
+    background-color: #0f172a;
+    color: #f8fafc;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html.dark-theme body {
+    background-color: #0f172a;
+    color: #f8fafc;
+}
+
+html.dark-theme .card {
+    background-color: #1e293b;
+    color: #f8fafc;
+    border-color: #334155;
+}
+
+html.dark-theme .muted {
+    color: #cbd5e1 !important;
+}
+
+html.dark-theme header {
+    background-color: #1e293b;
+    border-bottom-color: #334155;
+}
+
+html.dark-theme nav a {
+    color: #f8fafc;
+}
+
+html.dark-theme nav a:hover,
+html.dark-theme nav a.active {
+    color: #fbbf24;
+}
+
+html.dark-theme .btn {
+    background-color: #dc2626;
+    color: white;
+    border-color: #dc2626;
+}
+
+html.dark-theme .btn-outline {
+    background-color: transparent;
+    color: #dc2626;
+    border-color: #dc2626;
+}
+
+html.dark-theme .btn-outline:hover {
+    background-color: #dc2626;
+    color: white;
+}
+
+html.dark-theme footer {
+    background-color: #1e293b;
+    color: #cbd5e1;
+}
+
+html.dark-theme input,
+html.dark-theme textarea,
+html.dark-theme select {
+    background-color: #1e293b;
+    border-color: #475569;
+    color: #f8fafc;
+}
+
+html.dark-theme .cart-item {
+    background-color: #1e293b;
+    border-color: #334155;
+}
+
+html.dark-theme .cart-summary {
+    background-color: #1e293b;
+    border-color: #334155;
+    color: #f8fafc;
+}
+
+html.dark-theme .cart-title {
+    color: #f8fafc;
+}
+
+html.dark-theme .btn-danger {
+    background-color: #dc2626;
+    color: white;
+}
+
+html.dark-theme .btn-danger:hover {
+    background-color: #b91c1c;
+}
