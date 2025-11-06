@@ -72,8 +72,15 @@ window.addEventListener('click', resumeOnGesture);
 window.addEventListener('keydown', resumeOnGesture);
 window.addEventListener('touchstart', resumeOnGesture);
 
+$(window).on('scroll', lazyLoad);
+$(document).ready(lazyLoad);
+
+$(document).on('click', '.copy-btn', function () {
+  copyName(this);
+});
+
 document.addEventListener('DOMContentLoaded', () => {
-  const addButtons = document.querySelectorAll('.grid-3 article button');
+  const addButtons = document.querySelectorAll('.grid-3 article .btn-primary');
 
   addButtons.forEach(button => {
     button.addEventListener('click', () => {
@@ -86,15 +93,66 @@ document.addEventListener('DOMContentLoaded', () => {
       cart.push({ title, price, image }); 
       localStorage.setItem('cart', JSON.stringify(cart));
 
-      // Play order sound (same as on about.html)
-      playSound('notify');
+      if (typeof showToast === 'function') {
+        showToast(`${title} added to cart!`, 2500);
+      }
 
       button.textContent = 'Added';
       button.classList.add('btn-success');
       setTimeout(() => {
         button.textContent = 'Add';
         button.classList.remove('btn-success');
-      }, 1000);
+      }, 2500);
+    });
+  });
+});
+
+const products = ['Classic Margherita', 'Pepperoni Feast', 'Veggie Garden'];
+let highlightedElements = [];
+
+$('#search-bar').on('keyup', function() {
+  const query = $(this).val().toLowerCase();
+  
+  $('#products-grid article').each(function() {
+    const $item = $(this);
+    const title = $item.find('h3').text().toLowerCase();
+    
+    if (title.includes(query)) {
+      $item.show();
+      highlightSearchTerms($item, query);
+    } else {
+      $item.hide();
+    }
+  });
+  
+  if (query.length > 0) {
+    showAutocomplete(query);
+  } else {
+    $('#autocomplete').hide().empty();
+    removeHighlights();
+  }
+});
+
+function showAutocomplete(query) {
+  const matches = products.filter(p => p.toLowerCase().includes(query));
+  const $autocomplete = $('#autocomplete');
+  
+  if (matches.length > 0) {
+    $autocomplete.empty();
+    matches.forEach(match => {
+      const $suggestion = $('<div class="autocomplete-item"></div>').text(match);
+      $suggestion.on('click', function() {
+        $('#search-bar').val(match);
+        $('#autocomplete').hide().empty();
+        $('#products-grid article').each(function() {
+          const $item = $(this);
+          const title = $item.find('h3').text();
+          if (title === match) {
+            $item.show();
+          }
+        });
+      });
+      $autocomplete.append($suggestion);
     });
     $autocomplete.show();
   } else {

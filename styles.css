@@ -1,7 +1,7 @@
 /* Основные цвета и размеры */
 :root {
-  --orange: #ff6900;
-  --orange-dark: #e85f00;
+  --orange: #e85f00;
+  --orange-dark: #cc5500;
   --white: #ffffff;
   --black: #222222;
   --gray: #666666;
@@ -1341,7 +1341,7 @@ html.dark-theme .card {
 }
 
 html.dark-theme .muted {
-    color: #cbd5e1 !important;
+    color: #94a3b8 !important;
 }
 
 html.dark-theme header {
@@ -1356,6 +1356,7 @@ html.dark-theme nav a {
 html.dark-theme nav a:hover,
 html.dark-theme nav a.active {
     color: #fbbf24;
+    background-color: rgba(251, 191, 36, 0.1);
 }
 
 html.dark-theme .btn {
