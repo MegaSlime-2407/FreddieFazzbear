@@ -1,4 +1,77 @@
 // menu.js — Add from Menu to Cart
+
+// Sound functionality (same as about.html)
+const SOUND_PATHS = {
+  notify: 'https://www.soundjay.com/buttons/sounds/button-3.mp3'
+};
+
+const audioCache = {};
+let audioCtx = null;
+
+function tryHtmlAudio(name) {
+  return new Promise((resolve, reject) => {
+    const path = SOUND_PATHS[name];
+    if (!path) return reject(new Error('no-path'));
+    try {
+      if (!audioCache[name]) {
+        const a = new Audio(path);
+        a.preload = 'auto';
+        audioCache[name] = a;
+      }
+      const au = audioCache[name];
+      au.currentTime = 0;
+      const p = au.play();
+      if (p && typeof p.then === 'function') {
+        p.then(() => resolve('html-audio')).catch(err => reject(err));
+      } else {
+        resolve('html-audio');
+      }
+    } catch (err) {
+      reject(err);
+    }
+  });
+}
+
+function webAudioBeep({ frequency = 880, duration = 0.12, gain = 0.06 } = {}) {
+  try {
+    if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    const ctx = audioCtx;
+    const now = ctx.currentTime;
+    const osc = ctx.createOscillator();
+    const g = ctx.createGain();
+    osc.type = 'sine';
+    osc.frequency.value = frequency;
+    g.gain.setValueAtTime(gain, now);
+    g.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+    osc.connect(g);
+    g.connect(ctx.destination);
+    osc.start(now);
+    osc.stop(now + duration + 0.02);
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+function playSound(name = 'notify') {
+  tryHtmlAudio(name).catch(() => {
+    webAudioBeep();
+  });
+}
+
+// Resume audio context on first gesture
+const resumeOnGesture = () => {
+  try {
+    if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+  } catch (e) {}
+  window.removeEventListener('click', resumeOnGesture);
+  window.removeEventListener('keydown', resumeOnGesture);
+  window.removeEventListener('touchstart', resumeOnGesture);
+};
+window.addEventListener('click', resumeOnGesture);
+window.addEventListener('keydown', resumeOnGesture);
+window.addEventListener('touchstart', resumeOnGesture);
+
 document.addEventListener('DOMContentLoaded', () => {
   const addButtons = document.querySelectorAll('.grid-3 article button');
 
@@ -12,6 +85,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const cart = JSON.parse(localStorage.getItem('cart')) || [];
       cart.push({ title, price, image }); 
       localStorage.setItem('cart', JSON.stringify(cart));
+
+      // Play order sound (same as on about.html)
+      playSound('notify');
 
       button.textContent = 'Added';
       button.classList.add('btn-success');
