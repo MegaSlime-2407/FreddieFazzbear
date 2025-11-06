@@ -201,7 +201,7 @@ function renderServicesGrid(selector = '.grid-3') {
       <img src="${s.img}" alt="${s.title}" loading="lazy">
       <h3>${s.title}</h3>
       <p class="muted small">${s.desc}</p>
-      <div class="mt-3"><a href="#" class="btn btn-outline">Learn More</a></div>
+      <div class="mt-3"><a href="menu.html" class="btn btn-outline">Learn More</a></div>
     `;
     grid.appendChild(card);
   });
