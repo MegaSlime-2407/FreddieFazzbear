@@ -96,5 +96,44 @@ document.addEventListener('DOMContentLoaded', () => {
         button.classList.remove('btn-success');
       }, 1000);
     });
+    $autocomplete.show();
+  } else {
+    $autocomplete.hide().empty();
+  }
+}
+
+function highlightSearchTerms($element, query) {
+  removeHighlights();
+  
+  $element.find('h3, p').each(function() {
+    const $target = $(this);
+    let html = $target.html();
+    
+    if (query.length > 0) {
+      const regex = new RegExp(`(${query})`, 'gi');
+      html = html.replace(regex, '<mark class="highlight">$1</mark>');
+      $target.html(html);
+      highlightedElements.push($target);
+    }
   });
+}
+
+function removeHighlights() {
+  highlightedElements.forEach($el => {
+    $el.find('mark.highlight').each(function() {
+      const $mark = $(this);
+      $mark.replaceWith($mark.text());
+    });
+  });
+  highlightedElements = [];
+}
+
+$('#search-bar').on('blur', function() {
+  setTimeout(() => $('#autocomplete').hide(), 200);
+});
+
+$('#search-bar').on('focus', function() {
+  if ($(this).val().length > 0) {
+    $('#autocomplete').show();
+  }
 });

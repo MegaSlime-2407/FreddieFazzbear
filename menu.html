@@ -4,6 +4,15 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Menu — My Tasty App</title>
+   <script>
+   
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        document.documentElement.classList.add('dark-theme');
+      }
+    })();
+  </script>
   <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
@@ -26,12 +35,21 @@
   </header>
 
   <main>
-    <section class="wrapper mt-6">
+    <section class="wrapper mt-6" style="position: relative;">
       <h1 class="section-subtitle">Popular choices</h1>
-      <div class="grid grid-3 mt-4">
+      
+      <div class="search-container mt-4" style="max-width: 500px; margin-bottom: 24px;">
+        <input type="text" id="search-bar" class="search-input" placeholder="Search products..." autocomplete="off">
+        <div id="autocomplete" class="autocomplete-dropdown"></div>
+      </div>
+      
+      <div class="grid grid-3 mt-2" id="products-grid">
         <article class="card flex flex-col gap-3">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a3/Eq_it-na_pizza-margherita_sep2005_sml.jpg" alt="Classic Margherita" loading="lazy">
-          <h3>Classic Margherita</h3>
+          <img class="lazy" data-src="https://upload.wikimedia.org/wikipedia/commons/a/a3/Eq_it-na_pizza-margherita_sep2005_sml.jpg" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%23ddd' width='400' height='300'/%3E%3C/svg%3E" alt="Classic Margherita">
+          <div class="flex items-center justify-between">
+            <h3>Classic Margherita</h3>
+            <button class="copy-btn" type="button" title="Copy name">📋</button>
+          </div>
           <p class="muted">Simple and solid: tomato, mozzarella, basil. No drama, just good.</p>
           <div class="flex items-center justify-between mt-4">
             <strong>2 400 ₸</strong>
@@ -39,17 +57,24 @@
           </div>
         </article>
         <article class="card flex flex-col gap-3">
-          <img src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?q=80&w=1200&auto=format&fit=crop" alt="Pepperoni Feast" loading="lazy">
-          <h3>Pepperoni Feast</h3>
+          <img class="lazy" data-src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?q=80&w=1200&auto=format&fit=crop" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%23ddd' width='400' height='300'/%3E%3C/svg%3E" alt="Pepperoni Feast">
+          <div class="flex items-center justify-between">
+            <h3>Pepperoni Feast</h3>
+            <button class="copy-btn" type="button" title="Copy name">📋</button>
+          </div>
           <p class="muted">Lots of pepperoni, lots of cheese. Zero regrets.</p>
           <div class="flex items-center justify-between mt-4">
             <strong>2 900 ₸</strong>
             <button class="btn btn-primary" type="button">Add</button>
           </div>
         </article>
+
         <article class="card flex flex-col gap-3">
-          <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=1200&auto=format&fit=crop" alt="Veggie Garden" loading="lazy">
-          <h3>Veggie Garden</h3>
+          <img class="lazy" data-src="https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=1200&auto=format&fit=crop" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%23ddd' width='400' height='300'/%3E%3C/svg%3E" alt="Veggie Garden">
+          <div class="flex items-center justify-between">
+            <h3>Veggie Garden</h3>
+            <button class="copy-btn" type="button" title="Copy name">📋</button>
+          </div>
           <p class="muted">Crunchy veggies, fresh herbs, and a light vibe. Tastes clean.</p>
           <div class="flex items-center justify-between mt-4">
             <strong>2 600 ₸</strong>
@@ -74,13 +99,17 @@
       </div>
     </section>
   </main>
-
+  <div class="toast"></div>
+  <div id="global-tooltip"></div>
   <footer class="mt-6">
     <div class="wrapper py-4">
       <p class="muted">© 2025 My Tasty App · Made with love</p>
       <p class="muted">Yerkanat Marat · Amangeldi Aldiyar · Kenzhebayev Madiyar · Oralov Alinur</p>
     </div>
   </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="./utils.js"></script>
   <script src="./menu.js"></script>
+  <script defer src="./theme-switcher.js"></script>
 </body>
 </html>

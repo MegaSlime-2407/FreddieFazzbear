@@ -4,6 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home — My Tasty App</title>
+   <script>
+   
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        document.documentElement.classList.add('dark-theme');
+      }
+    })();
+  </script>
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
@@ -29,24 +38,37 @@
     <section class="wrapper grid grid-2 items-center gap-8 py-4 mt-6">
       <div class="flex flex-col gap-4">
         <h1>Hot, fast, and actually tasty</h1>
-        <p class="muted">Fresh food made now, not yesterday. Pick what you like, tweak it a little, and we’ll get it to you while it’s still hot.</p>
+        <p class="muted">Fresh food made now, not yesterday. Pick what you like, tweak it a little, and we'll get it to you while it's still hot.</p>
         <div class="flex items-center gap-3 mt-4">
           <a href="menu.html" class="btn btn-primary">Browse menu</a>
           <a href="promotions.html" class="btn btn-outline">See deals</a>
         </div>
       </div>
       <div>
-        <img class="hero-rounded" src="https://upload.wikimedia.org/wikipedia/commons/9/91/Pizza-3007395.jpg" alt="Fresh hot pizza on a table" loading="lazy">
+        <img class="hero-rounded lazy" 
+        data-src="https://upload.wikimedia.org/wikipedia/commons/9/91/Pizza-3007395.jpg"
+        src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600'%3E%3Crect fill='%23ddd' width='800' height='600'/%3E%3C/svg%3E"
+        alt="Fresh hot pizza on a table">
+      </div>
+    </section>
+
+    <section id="order" class="wrapper mt-6">
+      <div class="card flex items-center justify-between gap-4">
+        <div>
+          <h3>Student special</h3>
+          <p class="muted">Got a student ID? That's 10% off. Easy.</p>
+        </div>
+        <a href="menu.html" class="btn btn-outline">Get discount</a>
       </div>
     </section>
 
     <section id="deals" class="wrapper mt-6">
       <div class="card flex items-center justify-between gap-4">
         <div>
-          <h3>Student special</h3>
-          <p class="muted">Got a student ID? That’s 10% off. Easy.</p>
+          <h3>Special Deals</h3>
+          <p class="muted">Check out our latest promotions and special offers.</p>
         </div>
-        <a href="#order" class="btn btn-outline">Get discount</a>
+        <a href="promotions.html" class="btn btn-outline">See deals</a>
       </div>
     </section>
 
@@ -61,7 +83,7 @@
           <p class="muted mt-3">Some links.</p>
           <ul class="mt-3" style="padding-left:16px;">
             <li><a href="menu.html">Classic Pizzas</a></li>
-            <li><a href="menu.html">Chef Specials</a></li>
+            <li><a href="promotions.html">Chef Specials</a></li>
             <li><a href="product.html">Build Your Own</a></li>
           </ul>
         </aside>
@@ -91,6 +113,10 @@
       <p class="muted">Yerkanat Marat · Amangeldi Aldiyar · Kenzhebayev Madiyar · Oralov Alinur</p>
     </div>
   </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="./utils.js"></script>
+  <script src="./index.js"></script>
+  <script defer src="./theme-switcher.js"></script>
 
   <script>
     (function() {

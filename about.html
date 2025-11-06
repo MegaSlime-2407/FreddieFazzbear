@@ -4,6 +4,15 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About us — My Tasty App</title>
+   <script>
+   
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        document.documentElement.classList.add('dark-theme');
+      }
+    })();
+  </script>
   <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
@@ -157,7 +166,7 @@
           <h3>Quality Ingredients</h3>
           <p class="muted small">We use only the freshest ingredients sourced from local suppliers. Every pizza is made with premium quality cheese, vegetables, and meats.</p>
           <div class="mt-3">
-            <a href="product.html" class="btn btn-outline">Learn More</a>
+            <a href="menu.html" class="btn btn-outline">Learn More</a>
           </div>
         </div>
         <div class="card">
@@ -165,7 +174,7 @@
           <h3>24/7 Support</h3>
           <p class="muted small">Our customer support team is available around the clock to help with your orders, questions, and any concerns you might have.</p>
           <div class="mt-3">
-            <a href="contacts.html" class="btn btn-outline">Learn More</a>
+            <a href="menu.html" class="btn btn-outline">Learn More</a>
           </div>
         </div>
       </div>
@@ -219,6 +228,8 @@
       <p class="muted">Yerkanat Marat · Amangeldi Aldiyar · Kenzhebayev Madiyar · Oralov Alinur</p>
     </div>
   </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="./scripts.js" defer></script>
+<script defer src="./theme-switcher.js"></script>
 </body>
 </html>

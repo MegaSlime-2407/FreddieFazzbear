@@ -97,6 +97,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 1000);
     });
   });
+$(document).on('click', '.grid-3 article .btn-primary', function () {
+  addToCart(this, 2500);
 });
 
 //Task 2 Part 4 By Madiyar (Filter by price) implementation:
