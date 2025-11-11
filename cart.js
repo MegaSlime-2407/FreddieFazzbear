@@ -67,23 +67,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
   stars.forEach((star, index) => {
     star.addEventListener('click', () => {
+      const user = getCurrentUser();
+      if (!user) {
+        ratingMessage.textContent = 'Please log in to rate';
+        ratingMessage.style.color = 'red';
+        return;
+      }
+      
+      const rating = index + 1;
       stars.forEach((s, i) => {
         s.style.color = i <= index ? 'gold' : '#ccc';
       });
-      ratingMessage.textContent = `You rated the website ${index + 1} / 5 ⭐`;
+      ratingMessage.textContent = `You rated the website ${rating} / 5 ⭐`;
       ratingMessage.style.color = 'green';
-      localStorage.setItem('siteRating', index + 1);
+      saveUserRating(user.id, rating);
     });
   });
 
   // === Restore saved rating ===
-  const savedRating = localStorage.getItem('siteRating');
-  if (savedRating) {
-    stars.forEach((s, i) => {
-      s.style.color = i < savedRating ? 'gold' : '#ccc';
-    });
-    ratingMessage.textContent = `Your previous rating: ${savedRating} / 5 ⭐`;
-    ratingMessage.style.color = 'green';
+  const user = getCurrentUser();
+  if (user) {
+    const savedRating = getUserRating(user.id);
+    if (savedRating) {
+      stars.forEach((s, i) => {
+        s.style.color = i < savedRating ? 'gold' : '#ccc';
+      });
+      ratingMessage.textContent = `Your previous rating: ${savedRating} / 5 ⭐`;
+      ratingMessage.style.color = 'green';
+    }
   }
 
   renderCart();
