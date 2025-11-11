@@ -471,6 +471,13 @@ p {
   gap: 1rem;
 }
 
+.checkout-form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: var(--black);
+}
+
 .checkout-form input {
   width: 100%;
   padding: 0.75rem;
@@ -1353,10 +1360,14 @@ html.dark-theme nav a {
     color: #f8fafc;
 }
 
-html.dark-theme nav a:hover,
+html.dark-theme nav a:hover {
+  color: #fbbf24;
+  background-color: rgba(251, 191, 36, 0.1);
+}
+
 html.dark-theme nav a.active {
-    color: #fbbf24;
-    background-color: rgba(251, 191, 36, 0.1);
+  color: #fbbf24;
+  background-color: rgba(251, 191, 36, 0.2);
 }
 
 html.dark-theme .btn {
@@ -1410,7 +1421,25 @@ html.dark-theme .btn-danger {
 }
 
 html.dark-theme .btn-danger:hover {
-    background-color: #b91c1c;
+  background-color: #b91c1c;
+}
+
+html.dark-theme .auth-card {
+  background-color: #1e293b;
+  border-color: #334155;
+  color: #f8fafc;
+}
+
+html.dark-theme .checkout-form label {
+  color: #f8fafc;
+}
+
+html.dark-theme .error-message {
+  color: #fca5a5;
+}
+
+html.dark-theme .mobile-menu-toggle span {
+  background: #fbbf24;
 }
 
 /* Responsive Navigation */
@@ -1419,12 +1448,52 @@ header {
   top: 0;
   z-index: 1000;
   background: var(--white);
+  transition: background-color 0.3s ease;
+}
+
+header .wrapper {
+  position: relative;
+}
+
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+}
+
+.mobile-menu-toggle span {
+  width: 100%;
+  height: 3px;
+  background: var(--orange);
+  border-radius: 3px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.mobile-menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
 }
 
 header nav {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
 }
 
 nav a {
@@ -1452,20 +1521,108 @@ nav a.active:hover {
 
 @media (max-width: 768px) {
   header .wrapper {
-    flex-direction: column;
-    gap: 16px;
-    align-items: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
   
-  nav {
+  .mobile-menu-toggle {
+    display: flex;
+  }
+  
+  header nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
     width: 100%;
+    background: var(--white);
     flex-direction: column;
-    gap: 8px;
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-top: 16px;
+    padding: 0 20px;
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+  }
+  
+  header nav.mobile-menu-open {
+    max-height: 600px;
+    opacity: 1;
+    padding: 16px 20px;
   }
   
   nav a {
     width: 100%;
+    text-align: left;
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin-bottom: 4px;
+  }
+  
+  nav span#authLinks {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 8px;
+  }
+  
+  nav span#authLinks a {
+    width: 100%;
+    text-align: left;
+  }
+  
+  header nav .btn {
+    width: 100%;
+    margin-top: 8px;
     text-align: center;
+  }
+  
+  header.mobile-menu-active {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  
+  html.dark-theme header nav {
+    background: #1e293b;
+    border-color: #334155;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  
+  html.dark-theme nav a:hover {
+    background-color: rgba(251, 191, 36, 0.15);
+    color: #fbbf24;
+  }
+  
+  html.dark-theme nav a.active {
+    background-color: #fbbf24;
+    color: #1e293b;
+  }
+  
+  html.dark-theme nav a.active:hover {
+    background-color: #f59e0b;
+    color: #1e293b;
+  }
+  
+  html.dark-theme header.mobile-menu-active {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+}
+
+@media (max-width: 480px) {
+  header nav {
+    padding: 0 16px;
+  }
+  
+  header nav.mobile-menu-open {
+    padding: 12px 16px;
+  }
+  
+  nav a {
+    padding: 10px 12px;
+    font-size: 0.95rem;
   }
 }
 
@@ -1487,4 +1644,86 @@ nav a.active:hover {
 
 html {
   scroll-behavior: smooth;
+}
+
+.auth-card {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 24px;
+}
+
+.auth-card .section-subtitle {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+@media (max-width: 600px) {
+  .auth-card {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 100%;
+  }
+  
+  .auth-card .section-subtitle {
+    font-size: 1.5rem;
+  }
+  
+  .wrapper {
+    padding: 0 16px;
+  }
+  
+  .checkout-form label {
+    font-size: 0.9rem;
+    margin-bottom: 4px;
+  }
+  
+  .checkout-form input,
+  .checkout-form textarea {
+    font-size: 16px;
+    padding: 12px;
+  }
+  
+  .error-message {
+    font-size: 0.85rem;
+    margin-top: 4px;
+  }
+  
+  .auth-card .btn-primary {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-card {
+    margin: 16px auto;
+    padding: 16px;
+  }
+  
+  .auth-card .section-subtitle {
+    font-size: 1.25rem;
+  }
+  
+  header .brand-name {
+    font-size: 16px;
+  }
+  
+  header .brand-logo {
+    font-size: 24px;
+  }
+  
+  .auth-card .btn {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 0.9rem;
+  }
+  
+  nav .btn {
+    width: 100%;
+    display: block;
+    margin-top: 8px;
+  }
+  
+  .wrapper {
+    padding: 0 12px;
+  }
 }
