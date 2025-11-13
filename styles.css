@@ -320,9 +320,12 @@ p {
     font-size: 0.9rem;
   }
 
-  .grid-2,
-  .grid-3 {
+  .grid-2 {
     grid-template-columns: 1fr;
+  }
+
+  .span-2 {
+    grid-column: 1 / -1;
   }
 
   .about-title {
