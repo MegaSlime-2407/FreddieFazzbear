@@ -8,6 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
   
   document.getElementById('userName').textContent = user.name;
   document.getElementById('userEmail').textContent = user.email;
+  const phoneEl = document.getElementById('userPhone');
+  if (phoneEl) {
+    phoneEl.textContent = user.phone && user.phone.trim() ? user.phone : '—';
+  }
   
   document.getElementById('logoutBtn').addEventListener('click', () => {
     logOut();

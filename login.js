@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('loginForm');
   const emailInput = document.getElementById('email');
   const passwordInput = document.getElementById('password');
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   
   function clearErrors() {
     document.querySelectorAll('.error-message').forEach(el => {
@@ -30,9 +31,19 @@ document.addEventListener('DOMContentLoaded', () => {
       showError('email', 'Email is required');
       return;
     }
+
+    if (!emailPattern.test(email)) {
+      showError('email', 'Enter a valid email address');
+      return;
+    }
     
     if (!password) {
       showError('password', 'Password is required');
+      return;
+    }
+
+    if (password.length < 8) {
+      showError('password', 'Password must be at least 8 characters');
       return;
     }
     

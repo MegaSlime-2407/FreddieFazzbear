@@ -8,6 +8,7 @@
   --light-gray: #e5e7eb;
   --border-radius: 12px;
   --shadow: 0 4px 12px rgba(0,0,0,0.08);
+  --page-offset: 112px;
 }
 
 /* Сброс стилей */
@@ -84,6 +85,10 @@ a:hover {
 
 .grid-2 {
   grid-template-columns: 1fr 1fr;
+}
+
+.span-2 {
+  grid-column: span 2;
 }
 
 /* Используем Flexbox для карточек (замена grid-3 на flex для требований) */
@@ -333,6 +338,68 @@ p {
   }
 }
 
+main {
+  padding-top: 0px;
+  transition: padding-top 0.3s ease;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--light-gray);
+  background: var(--white);
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  transition: background-color 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+  margin-left: 8px;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  background: rgba(232, 95, 0, 0.1);
+  border-color: var(--orange);
+  transform: translateY(-1px);
+}
+
+.theme-toggle:active {
+  transform: scale(0.95);
+}
+
+header nav .theme-toggle {
+  margin-left: auto;
+}
+
+html.dark-theme .theme-toggle {
+  background: #1e293b;
+  border-color: #334155;
+  color: #f8fafc;
+}
+
+html.dark-theme .theme-toggle:hover,
+html.dark-theme .theme-toggle:focus-visible {
+  background: rgba(251, 191, 36, 0.15);
+  border-color: #fbbf24;
+}
+
+.theme-toggle.is-mobile-toggle {
+  margin-left: auto;
+}
+
+@media (max-width: 1024px) {
+  header nav .theme-toggle {
+    display: none;
+  }
+
+  header .wrapper .theme-toggle {
+    display: inline-flex;
+  }
+}
+
 /* Page grid (Grid areas) */
 .page-grid {
   display: grid;
@@ -348,6 +415,7 @@ p {
 
 .area-header {
   grid-area: header;
+  z-index: 100;
 }
 
 .area-sidebar {
@@ -426,6 +494,20 @@ p {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 12px;
+}
+
+.map-card iframe {
+  display: block;
+  width: 100%;
+  height: 360px;
+  border: 0;
+  border-radius: inherit;
+}
+
+@media (max-width: 768px) {
+  .map-card iframe {
+    height: 280px;
+  }
 }
 
 /* Карточка изображения */
@@ -747,6 +829,31 @@ p {
     font-size: 0.98rem;
     line-height: 1.6;
   }
+
+html.dark-theme .accordion-item {
+  background-color: #1e293b;
+  border-color: #334155;
+}
+
+html.dark-theme .accordion-button {
+  color: #f8fafc;
+}
+
+html.dark-theme .accordion-button:hover {
+  background: rgba(148, 163, 184, 0.12);
+}
+
+html.dark-theme .accordion-icon {
+  color: #fbbf24;
+}
+
+html.dark-theme .accordion-panel {
+  background-color: #1e293b;
+}
+
+html.dark-theme .accordion-panel p {
+  color: #cbd5e1;
+}
   
   /* -----------------------------
      Modal / Popup — minimal styles
@@ -1494,6 +1601,7 @@ header nav {
   flex-wrap: wrap;
   gap: 12px;
   transition: max-height 0.3s ease, opacity 0.3s ease;
+  z-index: 101;
 }
 
 nav a {
@@ -1528,6 +1636,8 @@ nav a.active:hover {
   
   .mobile-menu-toggle {
     display: flex;
+    margin-left: 12px;
+    margin-right: auto;
   }
   
   header nav {

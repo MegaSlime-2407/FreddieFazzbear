@@ -2,6 +2,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const menuToggle = document.getElementById('mobile-menu-toggle');
   const nav = document.querySelector('header nav');
   const header = document.querySelector('header');
+  const refreshOffset = () => {
+    if (typeof window.updateHeaderOffset === 'function') {
+      window.updateHeaderOffset();
+    }
+  };
   
   if (!menuToggle || !nav) return;
   
@@ -9,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     nav.classList.toggle('mobile-menu-open');
     menuToggle.classList.toggle('active');
     header.classList.toggle('mobile-menu-active');
+    refreshOffset();
   });
   
   document.addEventListener('click', (e) => {
@@ -18,6 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
       nav.classList.remove('mobile-menu-open');
       menuToggle.classList.remove('active');
       header.classList.remove('mobile-menu-active');
+      refreshOffset();
     }
   });
   
@@ -26,7 +33,10 @@ document.addEventListener('DOMContentLoaded', () => {
       nav.classList.remove('mobile-menu-open');
       menuToggle.classList.remove('active');
       header.classList.remove('mobile-menu-active');
+      refreshOffset();
     }
   });
+
+  refreshOffset();
 });
 

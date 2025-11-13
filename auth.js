@@ -1,4 +1,4 @@
-function signUp(name, email, password) {
+function signUp(name, email, phone, password) {
   const users = JSON.parse(localStorage.getItem('users')) || [];
   
   const existingUser = users.find(u => u.email === email);
@@ -10,6 +10,7 @@ function signUp(name, email, password) {
     id: Date.now().toString(),
     name: name,
     email: email,
+    phone: phone,
     password: password
   };
   
@@ -30,7 +31,8 @@ function logIn(email, password) {
   const userSession = {
     id: user.id,
     name: user.name,
-    email: user.email
+    email: user.email,
+    phone: user.phone || ''
   };
   
   localStorage.setItem('currentUser', JSON.stringify(userSession));

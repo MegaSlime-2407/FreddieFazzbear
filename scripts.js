@@ -1,5 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
 
+  /* ---------------- LAYOUT OFFSET ---------------- */
+  const updateHeaderOffset = () => {
+    const header = document.querySelector('header');
+    if (!header) return;
+    const extraSpace = window.innerWidth <= 768 ? 56 : 36;
+    const offset = header.offsetHeight + extraSpace;
+    document.documentElement.style.setProperty('--page-offset', `${Math.ceil(offset)}px`);
+  };
+
+  window.updateHeaderOffset = updateHeaderOffset;
+  updateHeaderOffset();
+  window.addEventListener('resize', () => requestAnimationFrame(updateHeaderOffset));
+  window.addEventListener('load', updateHeaderOffset, { once: true });
+  setTimeout(updateHeaderOffset, 300);
+
   /* ---------------- ACCORDION ---------------- */
   document.querySelectorAll('.accordion .accordion-item').forEach(item => {
     const btn = item.querySelector('.accordion-button');
@@ -188,25 +203,6 @@ const services = [
   { id: 's2', title: 'Quality Ingredients', desc: 'Local suppliers', tag: 'quality', img: 'https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?w=400&h=200&fit=crop' },
   { id: 's3', title: '24/7 Support', desc: 'Always here for you', tag: 'support', img: 'https://images.unsplash.com/photo-1574126154517-d1e0d89ef734?w=400&h=200&fit=crop' }
 ];
-
-function renderServicesGrid(selector = '.grid-3') {
-  const grid = document.querySelector(selector);
-  if (!grid) return;
-  // keep existing cards only if they are non-empty; but replace to keep consistent demo
-  grid.innerHTML = '';
-  services.forEach(s => {
-    const card = document.createElement('div');
-    card.className = 'card service-card';
-    card.innerHTML = `
-      <img src="${s.img}" alt="${s.title}" loading="lazy">
-      <h3>${s.title}</h3>
-      <p class="muted small">${s.desc}</p>
-      <div class="mt-3"><a href="menu.html" class="btn btn-outline">Learn More</a></div>
-    `;
-    grid.appendChild(card);
-  });
-}
-renderServicesGrid('.grid-3');
 
 // Available now (HOF filter/map)
 const availableNowEl = document.createElement('div');
@@ -581,12 +577,83 @@ setTimeout(populateDemoNow, 120);
   const forms = document.querySelectorAll('form.js-with-spinner');
   if (!forms.length) return;
 
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const phoneAllowedPattern = /^[\d\s()+-]+$/;
+
   function showMessage(targetId, text, isError) {
     const el = document.getElementById(targetId);
     if (!el) return;
     el.textContent = text;
     el.className = isError ? 'form-error' : 'form-success';
     setTimeout(() => { el.textContent = ''; }, 4000);
+  }
+
+  function clearFieldErrors(form) {
+    form.querySelectorAll('.error-message[data-error-for]').forEach(el => {
+      el.textContent = '';
+    });
+    form.querySelectorAll('.input-error').forEach(el => el.classList.remove('input-error'));
+  }
+
+  function setFieldError(form, input, message) {
+    if (!input) return;
+    input.classList.add('input-error');
+    const errorEl = form.querySelector(`.error-message[data-error-for="${input.id}"]`);
+    if (errorEl) errorEl.textContent = message;
+  }
+
+  function validateContactForm(form) {
+    clearFieldErrors(form);
+    let isValid = true;
+
+    const nameInput = form.querySelector('input[name="name"]');
+    const emailInput = form.querySelector('input[type="email"]');
+    const phoneInput = form.querySelector('input[type="tel"]');
+    const messageInput = form.querySelector('textarea[name="message"]');
+
+    if (nameInput) {
+      const name = nameInput.value.trim();
+      if (!name) {
+        setFieldError(form, nameInput, 'Name is required');
+        isValid = false;
+      }
+    }
+
+    if (emailInput) {
+      const email = emailInput.value.trim();
+      if (!email) {
+        setFieldError(form, emailInput, 'Email is required');
+        isValid = false;
+      } else if (!emailPattern.test(email)) {
+        setFieldError(form, emailInput, 'Enter a valid email address');
+        isValid = false;
+      }
+    }
+
+    if (phoneInput) {
+      const phone = phoneInput.value.trim();
+      const digits = phone.replace(/\D/g, '');
+      if (!phone) {
+        setFieldError(form, phoneInput, 'Phone number is required');
+        isValid = false;
+      } else if (!phoneAllowedPattern.test(phone) || digits.length < 10 || digits.length > 15) {
+        setFieldError(form, phoneInput, 'Enter a valid phone number');
+        isValid = false;
+      }
+    }
+
+    if (messageInput) {
+      const message = messageInput.value.trim();
+      if (!message) {
+        setFieldError(form, messageInput, 'Message is required');
+        isValid = false;
+      } else if (message.length < 10) {
+        setFieldError(form, messageInput, 'Message should be at least 10 characters');
+        isValid = false;
+      }
+    }
+
+    return isValid;
   }
 
   forms.forEach(form => {
@@ -598,6 +665,12 @@ setTimeout(populateDemoNow, 120);
       const original = btn.innerHTML;
       btn.disabled = true;
       btn.innerHTML = `<span class="spinner"></span> Please wait...`;
+
+       if (!validateContactForm(form)) {
+        btn.disabled = false;
+        btn.innerHTML = original;
+        return;
+       }
 
       // Симуляция обработки формы
       setTimeout(() => {
