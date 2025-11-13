@@ -64,6 +64,19 @@ document.addEventListener('DOMContentLoaded', () => {
   // === Star rating ===
   const stars = document.querySelectorAll('.star');
   const ratingMessage = document.getElementById('ratingMessage');
+  const averageRatingEl = document.getElementById('averageRating');
+
+  function updateAverageRating() {
+    if (!averageRatingEl || typeof getAverageRating !== 'function') return;
+    const { average, count } = getAverageRating();
+    if (!count) {
+      averageRatingEl.textContent = 'No ratings yet. Be the first!';
+    } else {
+      const rounded = Math.round(average * 10) / 10;
+      const plural = count === 1 ? 'review' : 'reviews';
+      averageRatingEl.textContent = `Average rating: ${rounded.toFixed(1)} / 5 (${count} ${plural})`;
+    }
+  }
 
   stars.forEach((star, index) => {
     star.addEventListener('click', () => {
@@ -81,6 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ratingMessage.textContent = `You rated the website ${rating} / 5 ⭐`;
       ratingMessage.style.color = 'green';
       saveUserRating(user.id, rating);
+      updateAverageRating();
     });
   });
 
@@ -96,6 +110,8 @@ document.addEventListener('DOMContentLoaded', () => {
       ratingMessage.style.color = 'green';
     }
   }
+
+  updateAverageRating();
 
   renderCart();
 });

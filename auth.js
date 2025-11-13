@@ -64,6 +64,20 @@ function saveUserRating(userId, rating) {
   localStorage.setItem('userRatings', JSON.stringify(ratings));
 }
 
+function getAllRatings() {
+  return JSON.parse(localStorage.getItem('userRatings')) || {};
+}
+
+function getAverageRating() {
+  const ratings = getAllRatings();
+  const values = Object.values(ratings)
+    .map(Number)
+    .filter(value => !Number.isNaN(value) && value > 0);
+  const count = values.length;
+  const average = count ? values.reduce((acc, curr) => acc + curr, 0) / count : 0;
+  return { average, count };
+}
+
 function getAllUsers() {
   return JSON.parse(localStorage.getItem('users')) || [];
 }
